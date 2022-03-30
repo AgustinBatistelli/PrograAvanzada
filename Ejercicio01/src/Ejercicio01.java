@@ -1,6 +1,5 @@
 
 public class Ejercicio01 {
-	// Escribir un método en Java que permita comprobar si la multiplicación de todos los valores de una matriz numérica, dará 0 o no
 	
 	public boolean tieneCero(int[][] matriz) {
 		boolean bandera = false;
