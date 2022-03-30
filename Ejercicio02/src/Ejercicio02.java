@@ -26,7 +26,7 @@ public class Ejercicio02 {
 	public void mostrarMatriz(int[][] matriz) {
 		for ( int i = 0; i < matriz.length; i++) {
 			for ( int j = 0; j < matriz.length + 1; j++) {
-					System.out.print(matriz[i][j]);
+					System.out.printf("%3d", matriz[i][j]);
 					System.out.print(" | ");
 			}
 			System.out.print("\n");
