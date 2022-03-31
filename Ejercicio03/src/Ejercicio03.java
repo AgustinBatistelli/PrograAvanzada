@@ -1,6 +1,14 @@
 
 public class Ejercicio03 {
 	
+	/* 
+	 * La idea es recorrer todos los elementos de una fila de la matriz e ir acumulando
+	 * la cantidad de apariciones en un array contador.
+	 * Luego, ese array contador es utilizado para obtener la moda de la fila, y almacenarla
+	 * en el array de resultado llamado "arrayModas"
+	 * 
+	 * */
+	
 	public int posicionElementoArray(int[] array, int elemento) {
 		int i = 0,
 			pos = -1;
@@ -42,7 +50,7 @@ public class Ejercicio03 {
 	
 	public int[] obtenerArrayModas(int matriz[][]) {
 		int[] arrayContador = new int[matriz[0].length];
-		int[] arrayModa = new int[matriz.length];
+		int[] arrayModas = new int[matriz.length];
 		
 		int i,
 			j,
@@ -55,10 +63,10 @@ public class Ejercicio03 {
 				
 				arrayContador[pos]++;
 			}
-			arrayModa[i] = obtenerModaDelArray(arrayContador, matriz[i]);
+			arrayModas[i] = obtenerModaDelArray(arrayContador, matriz[i]);
 		}
 
-		return arrayModa;
+		return arrayModas;
 	}
 	
 	
