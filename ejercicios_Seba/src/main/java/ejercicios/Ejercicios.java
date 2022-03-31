@@ -103,66 +103,7 @@ public class Ejercicios {
 		System.out.println("\n");
 		imprimirMatriz(matFinal);
 	}
-
-	public void anagramas() {
-		String[] words = new String[] { "cat", "baby", "dog", "bird", "car", "ax"};
-		String string1 = "tcabnihjs";
-		String string2 = "tbcanihjs";
-		String string3 = "baykkjl";
-		String string4 = "bbabylkkj";
-		String string5 = "ccc";
-		String string6 = "breadmaking";
-
-		String s1 = find_embedded_word(words, string1);
-		String s2 = find_embedded_word(words, string2);
-		String s3 = find_embedded_word(words, string3);
-		String s4 = find_embedded_word(words, string4);
-		String s5 = find_embedded_word(words, string5);
-		String s6 = find_embedded_word(words, string6);
-
-		System.out.println("El resultado 1 es: " + s1);
-		System.out.println("El resultado 2 es: " + s2);
-		System.out.println("El resultado 3 es: " + s3);
-		System.out.println("El resultado 4 es: " + s4);
-		System.out.println("El resultado 5 es: " + s5);
-		System.out.println("El resultado 6 es: " + s6);
-	}
-
-	public String find_embedded_word(String[] words, String s) {
-		String embedded = "";
-
-		for(String eachWord : words) {
-			String copyOfEachWord = eachWord.replaceAll("\\s", "");
-			String copyOfs2 = s.replaceAll("\\s", "");
-			boolean status = true;
-
-			if(copyOfEachWord.length() != copyOfs2.length())
-				status = false;
-			else
-			{
-				char[] s1Array = copyOfEachWord.toLowerCase().toCharArray();
-
-				char[] s2Array = copyOfs2.toLowerCase().toCharArray();
-
-				Arrays.sort(s1Array);
-
-				Arrays.sort(s2Array);
-
-				status = Arrays.equals(s1Array, s2Array);
-			}
-
-			if(!status)
-				embedded = null;
-			else {
-				embedded = eachWord;
-				return embedded;
-			}
-
-		}
-
-		return embedded;
-	}
-
+	
 	public boolean diagonalPrincipalValorIgualQueEnPosicion() {
 
 		int[][] matriz = { {1,0,0,0},{0,1,0,0},{0,0,2,0},{0,0,0,4}};
