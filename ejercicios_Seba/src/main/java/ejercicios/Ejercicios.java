@@ -1,7 +1,5 @@
 package main.java.ejercicios;
 
-import java.util.Arrays;
-
 public class Ejercicios {
 
 	public static void main(String[] args) {
@@ -10,7 +8,63 @@ public class Ejercicios {
 //		System.out.println(ej.diagonalPrincipalValorIgualQueEnPosicion());
 //		System.out.println(ej.multiplicacionMatrizEsCero());
 //		ej.sumaAdyacentes();
-		ej.modasMatriz();
+//		ej.modasMatriz();
+		ej.obtenerDiagonalesDeMatrizCuadrada();
+	}
+
+	public void obtenerDiagonalesDeMatrizCuadrada() {
+		
+		int mat[][] = {
+				 {1, 2, 3, 4},
+				 {5, 6, 7, 8},
+				 {9, 10, 11, 12}, 
+				 {13, 14, 15, 16} };
+		
+		int matR[][] = new int[mat.length*2-1][];
+		
+		int xAux = 0;
+		int yAux = 0;
+				
+		for(int i = mat.length - 1; i >= 0; i--) {
+			
+			int x = i;
+			int y = 0;
+			
+			matR[xAux] = new int[mat[x].length - x];
+			
+			while(x < mat.length) {
+				System.out.print(mat[x][y] + " ");
+				matR[xAux][yAux] = mat[x][y];
+				x++;
+				y++;
+				yAux++;
+			}
+			
+			System.out.print("\n");
+			xAux++;
+			yAux = 0;
+		}
+		
+		for(int j = 1; j < mat.length; j++)
+		{
+			int x = 0;
+			int y = j;
+			
+			matR[xAux]=new int[mat.length - j];
+			
+			while(y < mat.length) {
+				
+				System.out.print(mat[x][y] + " ");
+				matR[xAux][yAux]= mat[x][y];
+				x++;
+				y++;
+				xAux--;
+			 }
+			
+			System.out.print("\n");
+			xAux++;
+			yAux=0;
+		}
 	}
 
 	public void modasMatriz() {
@@ -57,6 +111,15 @@ public class Ejercicios {
 			vecSolucion[i] = numeroMax;
 			numeroMax = 0;
 			contadorMax = 0;
+		}
+		
+		imprimirVector(vecSolucion);
+	}
+
+	public void imprimirVector(int[] vecSolucion) {
+		for(int i = 0; i < vecSolucion.length; i++) {
+			System.out.print(vecSolucion[i]);
+			System.out.print("|");
 		}
 	}
 
