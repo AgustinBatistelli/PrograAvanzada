@@ -1,7 +1,3 @@
-/.project
-/Ejercicio00/bin
-/Ejercicio01/bin
-/ejercicios_Seba/*.classpath
-/ejercicios_Seba/.project
-/ejercicios_Seba/.settings/*.prefs
-/ejercicios_Seba/bin/*.gitignore
+*/.classpath
+*/bin
+*/.settings
