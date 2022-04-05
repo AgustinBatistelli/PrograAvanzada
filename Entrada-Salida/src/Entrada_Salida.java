@@ -68,7 +68,115 @@ public class Entrada_Salida {
 	 * flush() vacia el flujo
 	 */
 	
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException  {
+		
+		leerDeTeclado();
+		leerEnteros();
+		leerUsandoSplit(args);
+		escribirArchivo();
+		escribirLineasEnArchivo();
+	}
+
+	private static void escribirLineasEnArchivo() {
+		FileWriter fichero = null;
+		PrintWriter pw = null;
+		
+		try {
+			
+			fichero = new FileWriter("prueba.txt");
+			pw = new PrintWriter(fichero);
+			
+			for(int i = 0; i < 10; i++) {
+				pw.println("Linea " + i);
+			}
+			
+		} catch(Exception e) {
+			
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				if(null != fichero)
+					fichero.close();
+			} catch(Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+	}
+
+	private static void escribirArchivo() {
+		try {
+			
+			String ruta = "/ruta/nombre.txt";
+			String contenido = "Contenido ejemplo";
+			File file = new File(ruta);
+			
+			if(!file.exists())
+				file.createNewFile();
+			
+			FileWriter fw = new FileWriter(file);
+			BufferedWriter bw = new BufferedWriter(fw);
+			bw.write(contenido);
+			bw.close(); //TODO: NO OLVIDARSE DE ESTOOOO!!!!!
+			
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static void leerUsandoSplit(String[] args) throws IOException {
+		
+		try {
+			FileReader input = new FileReader(args[0]);
+			BufferedReader br = new BufferedReader(input);
+			String line;
+			line = br.readLine();
+			
+			while (line != null) {
+				String[] datos;
+				datos = line.split(" ");
+				int entero1 = Integer.parseInt(datos[0]);
+				int entero2 = Integer.parseInt(datos[1]);
+				System.out.println(entero1 + " " + entero2);
+				line = br.readLine();
+			}
+			
+			br.close();
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+
+	private static void leerEnteros() throws IOException {
+		File f = null;
+		FileReader fr = null;
+		BufferedReader br = null;
+		
+		int numero;
+		
+		try {
+			
+			f = new File("enteros.txt");
+			fr = new FileReader(f);
+			br = new BufferedReader(fr);
+			String linea;
+			
+			while((linea = br.readLine()) != null) {
+				numero = Integer.parseInt(linea);
+				System.out.print(numero);
+			}
+			
+			br.close(); //implementarlo en otro lado
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static void leerDeTeclado() throws IOException {
 		int c;
 		int contador = 0;
 		
