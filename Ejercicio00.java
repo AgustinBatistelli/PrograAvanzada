@@ -1,6 +1,6 @@
 package main.java.ejercicios;
 
-// Comentario de modificacion prueba
+// Comentario de modificacion 
 
 public class Ejercicio00 {
 
