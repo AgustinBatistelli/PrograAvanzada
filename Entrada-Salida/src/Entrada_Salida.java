@@ -1,12 +1,13 @@
 import java.io.*;
 import java.util.HashMap;
+import java.util.Scanner;
 //import java.util.Scanner;
 
 public class Entrada_Salida {
 	
-	private final static String MAX = "Maximo";
-	private final static String MIN = "Minimo";
-	private final static String PROM = "Promedio";
+	final static String MAX = "Maximo";
+	final static String MIN = "Minimo";
+	final static String PROM = "Promedio";
 		
 	public static void main(String[] args) throws IOException  {
 //		leerDeTeclado();
@@ -14,16 +15,39 @@ public class Entrada_Salida {
 //		leerUsandoSplit(args);
 //		escribirArchivo();
 //		escribirLineasEnArchivo();
+//		leerConScanner("entrada.in");
 		obtenerMaxMinYProm();
 	}
 
-	private static void obtenerMaxMinYProm() throws IOException {
+	public static void leerConScanner(String nomArch) throws Exception {
+		
+		Scanner sc = null;
+		
+		try {
+			sc = new Scanner(new File(nomArch));
+			
+			while(sc.hasNext()) {
+				System.out.println(sc.nextLine()); //lee linea completa
+			}
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			
+		} finally {
+			if(sc != null)
+				sc.close();
+		}	
+		
+	}
+
+	public static void obtenerMaxMinYProm() throws IOException {
 		int nrosEscritosEnArchivo = escribirArchivoNumRand();
 		HashMap<String, Integer> hash = leerEnteros("nrosRandom.txt", nrosEscritosEnArchivo);
 		escribirArchivoResultado(hash);
 	}
 
-	private static void escribirArchivoResultado(HashMap<String, Integer> hash) {
+	public static void escribirArchivoResultado(HashMap<String, Integer> hash) {
 		System.out.println("+----------+-------+");
 		System.out.println("| Máximo   | " + hash.get(MAX) + " |");
 		System.out.println("+----------+-------+");
@@ -33,7 +57,7 @@ public class Entrada_Salida {
 		System.out.println("+----------+-------+");
 	}
 
-	private static int escribirArchivoNumRand() {
+	public static int escribirArchivoNumRand() {
 		int min = 0;
 		int max = 12000;
 		int cantNrosAleatoriosMin = 10000;
@@ -44,7 +68,7 @@ public class Entrada_Salida {
 		return nrosAleatorios;
 	}
 
-	private static void escribirLineasEnArchivo(int min, int max, int nrosAleatorios) {
+	public static void escribirLineasEnArchivo(int min, int max, int nrosAleatorios) {
 		
 		FileWriter fichero = null;
 		PrintWriter pw = null;
@@ -70,7 +94,7 @@ public class Entrada_Salida {
 			
 		} finally {
 			try {
-				if(null != fichero)
+				if(fichero != null)
 					fichero.close();
 			} catch(Exception e2) {
 				e2.printStackTrace();
@@ -78,7 +102,7 @@ public class Entrada_Salida {
 		}
 	}
 
-	private static HashMap<String, Integer> leerEnteros(String nombreArch, int nrosEscritosEnArchivo) throws IOException {
+	public static HashMap<String, Integer> leerEnteros(String nombreArch, int nrosEscritosEnArchivo) throws IOException {
 		
 		File f = null;
 		FileReader fr = null;
@@ -183,7 +207,7 @@ public class Entrada_Salida {
 		}
 	}
 
-	private static void escribirArchivo() {
+	public static void escribirArchivo() {
 		try {
 			
 			String ruta = "/ruta/nombre.txt";
@@ -203,7 +227,7 @@ public class Entrada_Salida {
 		}
 	}
 
-	private static void leerDeTeclado() throws IOException {
+	public static void leerDeTeclado() throws IOException {
 		int c;
 		int contador = 0;
 		
