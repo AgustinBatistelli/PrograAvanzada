@@ -1,8 +1,5 @@
 
 public class Ejercicio04 {
-	//Escribir un método en Java que de una matriz cuadrada dada, devuelva una matriz con n filas, 
-	//donde cada una tendrá los datos de una de las diagonales (de abajo a la izquierda hacia arriba a la derecha)
-
 	public void mostrarDiagonales(int[][] matriz) {
 		for (int i = matriz.length - 1; i >= 0; i--) {
 			for (int j = 0; j < matriz.length - i; j++) {

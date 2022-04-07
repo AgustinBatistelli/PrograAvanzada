@@ -9,7 +9,7 @@ public class EntradaSalida {
 		
 		int minRandom = 10000;
 		int maxRandom = 20000;
-		int cantidadRandomEnteros = (int)Math.floor(Math.random() * (maxRandom-minRandom+1)+minRandom);
+		int cantidadRandomEnteros = (int)Math.floor(Math.random() * (maxRandom-minRandom+1) + minRandom);
 		System.out.println("Cantidad de enteros: " + cantidadRandomEnteros);
 		
 		EntradaSalida entradaSalida = new EntradaSalida();
@@ -20,12 +20,8 @@ public class EntradaSalida {
 		int[] enteros = new int[cantidadRandomEnteros];
 		entradaSalida.leoArchivo(pathEntrada, enteros);
 
-		int mayor = entradaSalida.buscoMayor(enteros);
-		int menor = entradaSalida.buscoMenor(enteros);
-		int promedio = entradaSalida.promedio(enteros);
-
 		String pathSalida = new String("tablaResultados.txt");
-		entradaSalida.escriboArchivoTablaResultados(pathSalida, mayor, menor, promedio);
+		entradaSalida.escriboArchivoTablaResultados(pathSalida, entradaSalida.mayorMenorPromedio(enteros));
 	}
 	
 	public void escriboArchivoRandoms(String path, int cantEnteros) {		
@@ -74,37 +70,31 @@ public class EntradaSalida {
 		}
 	}
 	
-	public int buscoMayor (int[] array) {
+	public int[] mayorMenorPromedio(int[] array) {
 		int mayor = array[0];
-		
-		for (int i = 1; i < array.length; i++) {
-			if (mayor < array[i]) 
-				mayor = array[i];
-		}
-		
-		return mayor;
-	}
-	
-	public int buscoMenor (int[] array) {
 		int menor = array[0];
-		
-		for (int i = 1; i < array.length; i++) {
-			if (menor > array[i]) 
-				menor = array[i];
-		}
-		
-		return menor;
-	}
-	
-	public int promedio(int[] array) {
 		int sumaTotal = 0;
-		for (int i = 0; i < array.length; i++) 
-			 sumaTotal += array[i];
+		for (int i = 0; i < array.length; i++){
+			  
+			  if (mayor < array[i])
+				  mayor = array[i];
+
+			  if (menor > array[i])
+				  menor = array[i];
+			  
+			  sumaTotal += array[i];
+			 
+		}
+		int[] arrayResp = new int[3];
+		arrayResp[0] = mayor;
+		arrayResp[1] = menor;
+		arrayResp[2] = sumaTotal / array.length;
 		
-		return sumaTotal / array.length;
+		return arrayResp;
 	}
 	
-	public void escriboArchivoTablaResultados(String path, int mayor, int menor, int promedio) {
+	
+	public void escriboArchivoTablaResultados(String path, int[] array) {
 		FileWriter archivo = null;
 		PrintWriter pw = null;
 		try {
@@ -112,11 +102,11 @@ public class EntradaSalida {
 			pw = new PrintWriter(archivo);
 		
 			pw.println("+----------+-------+");
-			pw.println("|Máximo    |" + mayor + "   |");
+			pw.println("|Máximo    |" + array[0] + "   |");
 			pw.println("+----------+-------+");
-			pw.println("|Mínimo    |" + menor + "   |");
+			pw.println("|Mínimo    |" + array[1] + "   |");
 			pw.println("+----------+-------+");
-			pw.println("|Promedio  |" + promedio + "   |");
+			pw.println("|Promedio  |" + array[2] + "   |");
 			pw.println("+----------+-------+");
 		}catch (Exception e) {
 			e.printStackTrace();
