@@ -37,7 +37,8 @@ public class Hotel {
 		
 		if(mayores + menores < 8) {
 			
-			while(i < cantHab && habitacionVacia(cantMay[i], cantMen[i])) {
+			while(i < cantHab && !habitacionVacia(cantMay[i], cantMen[i])) {
+				
 				cantMay[i] = mayores;
 				cantMen[i] = menores;
 				i++;		
@@ -46,7 +47,7 @@ public class Hotel {
 	}
 	
 	private boolean habitacionVacia(int i, int j) {
-		return i + j == 0;
+		return i + j != 0;
 	}
 
 	//c
