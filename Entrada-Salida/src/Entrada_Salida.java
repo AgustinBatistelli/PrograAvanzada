@@ -16,7 +16,32 @@ public class Entrada_Salida {
 //		escribirArchivo();
 //		escribirLineasEnArchivo();
 //		leerConScanner("entrada.in");
+		leerEnterosPegadosALetra("entrada.in");
 		obtenerMaxMinYProm();
+	}
+
+	public static void leerEnterosPegadosALetra(String nArch) throws FileNotFoundException {
+		
+		Scanner sc = null;
+		
+		try {
+			sc = new Scanner(new File(nArch));
+			
+			while(sc.hasNext()) {
+				String linea = sc.nextLine(); //"1A"
+				int nro = Integer.parseInt(linea.charAt(0) + ""); //OBTIENE EL NUMERO 1
+				char caracter = linea.charAt(1); //OBTIENE EL CARACTER A
+				
+				System.out.println("Nro: " + nro + " caracter: " + caracter);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(sc != null)
+				sc.close();
+		}
+		
+		
 	}
 
 	public static void leerConScanner(String nomArch) throws Exception {
@@ -27,7 +52,8 @@ public class Entrada_Salida {
 			sc = new Scanner(new File(nomArch));
 			
 			while(sc.hasNext()) {
-				System.out.println(sc.nextLine()); //lee linea completa
+				
+				System.out.println(sc.nextInt()); //lee linea completa
 			}
 			
 		} catch (Exception e) {
