@@ -3,12 +3,12 @@ import java.util.Arrays;
 public class Hotel {
 	public int cantHabitaciones;
 	public int cantHabitacionesOcupadas;
-	int[][] personasEnHabitaciones = new int[100][2]; //El primer indice indica la habitacion, y el segundo los mayores y menores 
-	
+	int[][] personasEnHabitaciones; //El primer indice indica la habitacion, y el segundo los mayores [0] y menores [1]	
 	//a)
 	public Hotel(int _cantHabitaciones) {
 		this.cantHabitaciones = _cantHabitaciones;
 		this.cantHabitacionesOcupadas = 0;
+		this.personasEnHabitaciones = new int[_cantHabitaciones][2];
 	}
 	
 	//b)
