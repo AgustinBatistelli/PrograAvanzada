@@ -1,0 +1,29 @@
+package main.java.medidas;
+
+public class UnidadDeMedida {
+	
+	protected double unidad;
+	protected boolean sistemaMetrico;
+	
+	public UnidadDeMedida(double valorUnidad, boolean tipoSistema) {
+		super();
+		unidad = valorUnidad;
+		sistemaMetrico = tipoSistema;
+	}
+	
+//	public double 
+	
+	
+	
+	
+	
+	
+	public static void main(String[] args) {
+		
+		UnidadDeMedida unidad1 = new UnidadDeMedida(1, true);
+		
+		System.out.println();
+		
+	}
+	
+}

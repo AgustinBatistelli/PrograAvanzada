@@ -1,0 +1,9 @@
+package lab;
+
+public class PackPrecioFijo extends Pack {
+
+	public PackPrecioFijo(double precio) {
+		this.precioFinal = precio;
+	}
+	
+}

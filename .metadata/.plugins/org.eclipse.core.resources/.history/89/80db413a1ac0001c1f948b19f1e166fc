@@ -1,0 +1,10 @@
+package main.java.medidas;
+
+public class UnidadDeMedida {
+	
+	protected double unidad;
+	
+//	public double convertToFeet(double value)
+//	public double convertToKilometre(double value)
+	
+}

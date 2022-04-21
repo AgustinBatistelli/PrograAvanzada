@@ -1,0 +1,13 @@
+package lab;
+
+public class ProductoIndividual extends {
+
+	public ProductoIndividual(double precioFinal, String nombreArticulo){
+		super(precioFinal, nombreArticulo);
+		this.precioFinal = ;
+		this.nombreArticulo = ;
+	}
+		
+	public double getPrecio(){
+		return precioFinal;
+}

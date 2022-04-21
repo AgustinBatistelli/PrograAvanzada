@@ -1,0 +1,42 @@
+package lab;
+
+//import java.util.*;
+
+public abstract class Pack extends Producto {
+	private LinkedList<Producto> listaProductos = new LinkedList<>();
+//	private Producto[] arrProductos;
+
+	public Pack(double precio, String nombreArticulo) {
+		super(precio, nombreArticulo); // tiene que llamar a super.
+	}
+		
+	abstract protected double calcularPrecio();
+	abstract protected void agregarProducto();
+	
+//		double suma = 0;
+//		for(int i = 0 ; i < arrProductos.length ; i++){
+//			suma += arrProductos[i].precioFinal;
+//		}
+//		return suma;
+ 
+}
+
+
+//
+//public class Push_Example
+//{
+//    public static void main(String args[])
+//{
+//        LinkedList<Integer> li = new LinkedList<>();
+//        li.push(10);
+//        li.push(11);
+//        li.push(12);
+//        li.push(13);
+//        li.push(14);
+//        System.out.println("LinkedList Elements: " + li);
+//// Push new elements
+//        li.push(100);
+//        li.push(101);
+//        System.out.println("LinkedList after using the push function: " + li);
+//}
+//}

@@ -1,0 +1,39 @@
+package lab;
+
+import java.util.*;
+
+public class PackPrecioFijo extends Pack {
+
+//	private double precioPack;
+//	public Pack(double precio, String nombreArticulo) {
+	
+	public PackPrecioFijo(double precio, String nombreArticulo) {
+		super(precio, nombreArticulo);
+	}
+	
+	protected double calcularPrecio() {
+		return this.precioFinal;
+	}
+	
+	public void agregarProducto(Producto prod) {
+		this.listaProductos
+	}
+}
+/
+//public class Push_Example
+//{
+//  public static void main(String args[])
+//{
+//      LinkedList<Integer> li = new LinkedList<>();
+//      li.push(10);
+//      li.push(11);
+//      li.push(12);
+//      li.push(13);
+//      li.push(14);
+//      System.out.println("LinkedList Elements: " + li);
+////Push new elements
+//      li.push(100);
+//      li.push(101);
+//      System.out.println("LinkedList after using the push function: " + li);
+//}
+//}

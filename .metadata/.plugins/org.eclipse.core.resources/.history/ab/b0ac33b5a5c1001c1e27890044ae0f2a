@@ -1,0 +1,21 @@
+package lab;
+
+public class PackDescuento extends Pack{
+	private double porcentajeDescuento;
+
+	public PackDescuento(double precio, String nombreProducto) {
+		super(precio, nombreProducto);
+		this.porcentajeDescuento = porcentajeDescuento;
+		this.precioFinal -=  porcentajeDescuento;
+	}
+	
+	
+	protected double calcularPrecio() {
+		return this.precioFinal;
+	}
+	
+	protected void agregarProducto(Producto prod) {
+		this.listaProductos.add(prod);
+	}
+}
+}

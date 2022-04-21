@@ -1,0 +1,14 @@
+package main.java.medidas;
+
+public class SistemaImperial extends UnidadDeMedida{
+	
+	public double convertToMeter(double value) {
+		return value/3.280839895;	
+	}
+	
+	public double convertToMile(double value) {
+		return value/0.0001893939;
+	}
+	
+	
+}

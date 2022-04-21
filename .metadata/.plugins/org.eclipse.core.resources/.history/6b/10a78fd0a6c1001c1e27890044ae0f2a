@@ -1,0 +1,10 @@
+package lab;
+
+public class PackRegalo extends Pack {
+
+	public PackDescuento(Producto[] arrProductos) {
+		super(arrProductos);
+		this.porcentajeDescuento = porcentajeDescuento;
+		this.precioFinal -=  porcentajeDescuento;
+	}
+}

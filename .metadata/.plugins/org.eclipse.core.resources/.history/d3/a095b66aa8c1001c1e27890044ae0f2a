@@ -1,0 +1,19 @@
+package lab;
+
+//import java.util.*;
+
+public abstract class Producto {
+	protected double precioFinal; // valor 
+	protected String nombreArticulo;
+	
+	public Producto(double precioFinal, String nombreArticulo){
+		this.precioFinal = precioFinal;
+		this.nombreArticulo = nombreArticulo;
+	}
+	
+	public double getPrecio(){
+		return precioFinal;
+	}
+
+}
+

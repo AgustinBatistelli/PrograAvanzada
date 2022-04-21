@@ -1,0 +1,16 @@
+package lab;
+
+public class PackRegalo extends Pack {
+
+	public PackRegalo(double precioFijo, String nombrePack) {
+		
+	}
+	protected double calcularPrecio() {
+		return this.precioFinal;
+	}
+	
+	protected void agregarProducto(Producto prod) {
+		this.listaProductos.add(prod);
+	}
+	
+}

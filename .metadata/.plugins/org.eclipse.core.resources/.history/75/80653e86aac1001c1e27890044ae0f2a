@@ -1,0 +1,14 @@
+package lab;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Producto p1 = new Producto(10,"CepilloDientes");
+		Producto p2 = new Producto(5,"PastaDental");
+		Producto p3 = new Producto(3,"Palta");
+		Producto p4 = new Producto(7,"Nachos");
+		
+//		Pack descuento
+	}
+}

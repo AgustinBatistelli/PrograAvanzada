@@ -1,0 +1,16 @@
+package lab;
+
+public class PackPrecioFijo extends Pack {
+	
+	public PackPrecioFijo(double precioFijo, String nombrePack) {
+		super(precioFijo, nombrePack);
+	}
+	
+	protected double calcularPrecio() {
+		return this.precioFinal;
+	}
+	protected void agregarProducto(Producto prod) {
+		@override
+		this.listaProductos.add(prod);
+	}
+}

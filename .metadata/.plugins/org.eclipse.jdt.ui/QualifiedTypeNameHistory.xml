@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.lang.StringIndexOutOfBoundsException"/>
+    <fullyQualifiedTypeName name="org.jcp.xml.dsig.internal.SignerOutputStream"/>
+    <fullyQualifiedTypeName name="main.java.ejercicios.Ejercicio02"/>
+    <fullyQualifiedTypeName name="main.java.ejercicios.Ejercicio07"/>
+    <fullyQualifiedTypeName name="java.io.BufferedWriter"/>
+    <fullyQualifiedTypeName name="Hotel"/>
+    <fullyQualifiedTypeName name="main.java.ejercicios.PruebasRandom"/>
+    <fullyQualifiedTypeName name="ejercicioCirculo.Circulo"/>
+    <fullyQualifiedTypeName name="ejercicioCirculo.Punto"/>
+    <fullyQualifiedTypeName name="main.java.medidas.SistemaMetrico"/>
+    <fullyQualifiedTypeName name="main.java.medidas.UnidadDeMedida"/>
+</qualifiedTypeNameHistroy>

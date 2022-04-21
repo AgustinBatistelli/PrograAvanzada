@@ -1,0 +1,18 @@
+package lab;
+
+public class PackRegalo extends Pack {
+
+	public PackRegalo(String nombrePack) {
+		super(0, nombrePack);
+	}
+	
+	@Override
+	protected void agregarProducto(Producto prod, boolean esGratis) {
+		
+		if ( esGratis )
+			prod.precioFinal = 0;
+		this.listaProductos.add(prod);
+		this.precioFinal+= prod.precioFinal;
+	}
+	
+}

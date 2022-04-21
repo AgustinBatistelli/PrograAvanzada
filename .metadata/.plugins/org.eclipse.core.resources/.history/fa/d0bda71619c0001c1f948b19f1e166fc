@@ -1,0 +1,11 @@
+package main.java.medidas;
+
+public class SistemaMetrico extends UnidadDeMedida {
+	
+	public double convertToFeet() {
+		
+		return this.unidad*	
+	}
+	
+	
+}

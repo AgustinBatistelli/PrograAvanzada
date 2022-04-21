@@ -1,0 +1,10 @@
+package lab;
+
+public class PackPrecioFijo extends Pack {
+
+//	public Pack(double precio, String nombreArticulo) {
+	public PackPrecioFijo(double precio, String nombreArticulo) {
+		super(precio, nombreArticulo);
+	}
+	
+}

@@ -1,0 +1,21 @@
+package lab;
+
+import java.util.LinkedList;
+
+public class Carrito {
+	private LinkedList<Producto> listaItems = new LinkedList<>();
+	
+	public Carrito(){}
+	
+	public void agregar() {
+		
+	}
+	
+	public double calcularTotal(){
+		double suma = 0;
+		for(int i = 0 ; i < arrayProductos.length ; i++){
+			suma += arrayProductos[i].getPrecio();
+		}
+		return suma;
+	}
+}
