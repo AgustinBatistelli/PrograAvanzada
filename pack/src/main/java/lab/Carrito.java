@@ -3,7 +3,7 @@ package lab;
 import java.util.LinkedList;
 
 public class Carrito {
-	private LinkedList<Producto> listaItems = new LinkedList<>();
+	private LinkedList<Producto> listaItems = new LinkedList<Producto>();
 
 	public Carrito() {
 	}
