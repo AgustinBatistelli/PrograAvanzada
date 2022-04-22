@@ -57,11 +57,14 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="tincho"/>
 			<item value="taller"/>
 		</list>
 		<list key="name">
+			<item value="ejercicioPack"/>
 		</list>
 		<list key="artifactId">
+			<item value="ejercicios"/>
 			<item value="ejemploMaven"/>
 		</list>
 		<list key="projectNameTemplate">

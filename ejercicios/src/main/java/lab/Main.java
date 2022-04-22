@@ -49,5 +49,8 @@ public class Main {
 		
 		carrito.generarFactura();
 		
+		
+		// darle formato y ver el encapsulamiento xq nos dejaba acceder a los atributos desde cualquier clase.
+		
 	}
 }

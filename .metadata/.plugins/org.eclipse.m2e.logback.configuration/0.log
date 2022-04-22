@@ -1484,3 +1484,25 @@ Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: start tag n
 2022-04-21 17:09:58,954 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2022-04-21 17:09:58,955 [Worker-50: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
 2022-04-21 17:09:58,955 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-04-21 19:10:15,065 [Worker-53: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-04-21 19:10:15,066 [Worker-53: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-04-21 19:10:15,066 [Worker-53: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-04-21 19:10:15,067 [Worker-53: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-04-22 13:57:46,601 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2022-04-22 13:57:49,939 [Worker-6: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-04-22 13:57:49,944 [Worker-6: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-04-22 13:57:49,948 [Worker-6: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-04-22 13:57:49,949 [Worker-6: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-04-22 14:43:07,433 [Worker-30: Creating project "ponyExpress"] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: tincho:ponyExpress:0.0.1-SNAPSHOT @ C:\Users\marti\eclipse-workspace\ponyExpress\pom.xml.
+2022-04-22 14:43:07,539 [Worker-30: Creating project "ponyExpress"] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ponyExpress/src/main/java
+2022-04-22 14:43:07,540 [Worker-30: Creating project "ponyExpress"] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ponyExpress/src/main/resources
+2022-04-22 14:43:07,541 [Worker-30: Creating project "ponyExpress"] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ponyExpress/src/test/java
+2022-04-22 14:43:07,541 [Worker-30: Creating project "ponyExpress"] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ponyExpress/src/test/resources
+2022-04-22 14:43:07,920 [Worker-32: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-04-22 14:43:07,921 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-04-22 14:43:07,922 [Worker-32: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-04-22 14:43:07,922 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-04-22 16:40:08,530 [Worker-73: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-04-22 16:40:08,531 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-04-22 16:40:08,532 [Worker-73: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-04-22 16:40:08,533 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource

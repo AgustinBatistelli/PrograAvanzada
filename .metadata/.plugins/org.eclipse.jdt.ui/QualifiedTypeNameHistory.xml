@@ -11,4 +11,12 @@
     <fullyQualifiedTypeName name="ejercicioCirculo.Punto"/>
     <fullyQualifiedTypeName name="main.java.medidas.SistemaMetrico"/>
     <fullyQualifiedTypeName name="main.java.medidas.UnidadDeMedida"/>
+    <fullyQualifiedTypeName name="lab.Producto"/>
+    <fullyQualifiedTypeName name="lab.PackPrecioFijo"/>
+    <fullyQualifiedTypeName name="lab.PackDescuento"/>
+    <fullyQualifiedTypeName name="lab.PackRegalo"/>
+    <fullyQualifiedTypeName name="lab.Carrito"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="bombilla.Bombilla"/>
+    <fullyQualifiedTypeName name="luchadoresJaponeses.GestionArchivo"/>
 </qualifiedTypeNameHistroy>
