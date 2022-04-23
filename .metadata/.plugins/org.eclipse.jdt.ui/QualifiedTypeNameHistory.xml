@@ -4,7 +4,6 @@
     <fullyQualifiedTypeName name="org.jcp.xml.dsig.internal.SignerOutputStream"/>
     <fullyQualifiedTypeName name="main.java.ejercicios.Ejercicio02"/>
     <fullyQualifiedTypeName name="main.java.ejercicios.Ejercicio07"/>
-    <fullyQualifiedTypeName name="java.io.BufferedWriter"/>
     <fullyQualifiedTypeName name="Hotel"/>
     <fullyQualifiedTypeName name="main.java.ejercicios.PruebasRandom"/>
     <fullyQualifiedTypeName name="ejercicioCirculo.Circulo"/>
@@ -17,6 +16,12 @@
     <fullyQualifiedTypeName name="lab.PackRegalo"/>
     <fullyQualifiedTypeName name="lab.Carrito"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="bombilla.Bombilla"/>
     <fullyQualifiedTypeName name="luchadoresJaponeses.GestionArchivo"/>
+    <fullyQualifiedTypeName name="bombilla.Habitacion"/>
+    <fullyQualifiedTypeName name="bombilla.Bombilla"/>
+    <fullyQualifiedTypeName name="luchadoresJaponeses.Luchador"/>
+    <fullyQualifiedTypeName name="luchadoresJaponeses.Torneo"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="java.io.BufferedWriter"/>
 </qualifiedTypeNameHistroy>
