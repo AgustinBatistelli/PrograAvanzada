@@ -1,10 +1,9 @@
 package luchadores_japoneses;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
 
 import org.junit.Test;
 
-import admin_archivos.GestorArchivos;
 import torneo.Torneo;
 
 public class LuchadoresJaponesesTest {

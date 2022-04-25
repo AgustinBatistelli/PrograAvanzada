@@ -1,6 +1,5 @@
 package admin_archivos;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
@@ -11,7 +10,7 @@ import torneo.Torneo;
 
 public class GestorArchivos {
 
-	public Torneo leerArchivo(String name) throws FileNotFoundException {
+	public Torneo leerArchivo(String name) throws Exception {
 		
 		Scanner sc = new Scanner(new FileReader("luchadoresJaponeses.in"));
 		
@@ -21,6 +20,9 @@ public class GestorArchivos {
 			
 			int cantLuchadores = Integer.valueOf(sc.nextLine().trim());
 			
+			if (cantLuchadores < 1 || cantLuchadores > 100000)
+				throw new Exception("Cantidad de luchadores no admitida.");
+			
 			LuchadorJapones[] luchadoresJaponeses = new LuchadorJapones[cantLuchadores];
 			
 			for(int i = 0; i < cantLuchadores; i++) {
@@ -28,6 +30,9 @@ public class GestorArchivos {
 				String linea = sc.nextLine();
 				
 				String[] datos = linea.split(" ");
+				
+				if(Integer.valueOf(datos[0]) < 0 || Integer.valueOf(datos[1]) > 1000000)
+					throw new Exception("Peso o altura del luchador no admitidos.");
 				
 				luchadoresJaponeses[i] = new LuchadorJapones(Integer.valueOf(datos[0]), Integer.valueOf(datos[1]));
 				

@@ -1,6 +1,5 @@
 package torneo;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,31 +18,43 @@ public class Torneo {
 		this.luchadores = luchadores;
 	}
 
-	public int[] resolver() throws FileNotFoundException {
+	public int[] resolver() throws Exception {
 
 		GestorArchivos gestor = new GestorArchivos();
+		
+		int[] resultado = null;
+		
+		try {
+			
+			Torneo torneo = gestor.leerArchivo("luchadoresJaponeses.in");
 
-		Torneo torneo = gestor.leerArchivo("luchadoresJaponeses.in");
+			List<LuchadorJapones> luchadores = torneo.getLuchadores();
 
-		List<LuchadorJapones> luchadores = torneo.getLuchadores();
+			resultado = new int[luchadores.size()];
 
-		int[] resultado = new int[luchadores.size()];
+			for(int i = 0; i < luchadores.size(); i++) {
 
-		for(int i = 0; i < luchadores.size(); i++) {
-
-			for(int j = i+1; j < luchadores.size(); j++) {
-
-				if(luchadores.get(i).domina(luchadores.get(j))) {
-					resultado = agregarDominaciones(i, resultado, luchadores);
+				for(int j = i+1; j < luchadores.size(); j++) {
 					
-				}else {
-					if(luchadores.get(j).domina(luchadores.get(i))) {
-						resultado = agregarDominaciones(j, resultado, luchadores);
-					}
+					validarDominaciones(i, j, resultado, luchadores);
+
 				}
-					
-			}
 
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	
+		return resultado;
+	}
+	
+	private int[] validarDominaciones(int i, int j, int[] resultado, List<LuchadorJapones> luchadores) {
+		if(luchadores.get(i).domina(luchadores.get(j)))
+			resultado = agregarDominaciones(i, resultado, luchadores);
+		else {
+			if(luchadores.get(j).domina(luchadores.get(i)))
+				resultado = agregarDominaciones(j, resultado, luchadores);
 		}
 		
 		return resultado;

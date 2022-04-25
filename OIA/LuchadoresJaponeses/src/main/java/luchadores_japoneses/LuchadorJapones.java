@@ -9,7 +9,7 @@ public class LuchadorJapones {
 	public LuchadorJapones(int p, int h) {
 		peso = p;
 		altura = h;
-		setDominaciones(0);
+		dominaciones = 0;
 	}
 
 	public boolean domina(LuchadorJapones otro) {
