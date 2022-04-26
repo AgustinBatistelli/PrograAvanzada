@@ -12,7 +12,7 @@ public class GestorArchivos {
 
 	public Torneo leerArchivo(String name) throws Exception {
 		
-		Scanner sc = new Scanner(new FileReader("luchadoresJaponeses.in"));
+		Scanner sc = new Scanner(new FileReader(name));
 		
 		Torneo torneo = new Torneo();
 		
