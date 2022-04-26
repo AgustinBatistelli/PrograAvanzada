@@ -1,4 +1,4 @@
-package lab;
+package productos;
 
 import java.util.*; // preguntar xq necesito volve a llamar a la biblioteca.
 
@@ -11,8 +11,8 @@ public abstract class Pack extends Producto {
 	
 	
 	
-	protected void agregarProducto(Producto prod) {};
-	protected void agregarProducto(Producto prod, boolean esGratis) {};
+	public void agregarProducto(Producto prod) {};
+	public void agregarProducto(Producto prod, boolean esGratis) {};
 	
 	
 	

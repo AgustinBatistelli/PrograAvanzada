@@ -1,4 +1,7 @@
-package lab;
+package uso;
+
+import productos.*;
+
 
 public class Main {
 
@@ -9,6 +12,7 @@ public class Main {
 		Producto p3 = new Producto(3,"Palta");
 		Producto p4 = new Producto(7,"Nachos");
 		Producto p5 = new Producto(14,"Queso");
+
 		
 		Pack fijo = new PackPrecioFijo(15,"PackCepilloYPasta"); 
 		
@@ -16,7 +20,7 @@ public class Main {
 		fijo.agregarProducto(p2);
 		fijo.agregarProducto(p3);
 		
-		double precio = fijo.precioFinal;
+		double precio = fijo.getPrecio();
 		
 		System.out.println( "Precio del fijo = " + precio);
 			
@@ -26,7 +30,7 @@ public class Main {
 		descuento.agregarProducto(p2);
 		descuento.agregarProducto(p3);
 		
-		precio = descuento.precioFinal;
+		precio = descuento.getPrecio();
 		
 		System.out.println( "Precio del descuento = " + precio);
 		
@@ -37,7 +41,7 @@ public class Main {
 		regalo.agregarProducto(p2);
 		regalo.agregarProducto(p3, false);
 		
-		precio = regalo.precioFinal;
+		precio = regalo.getPrecio();
 		
 		System.out.println( "Precio del descuento = " + precio);
 		
@@ -49,6 +53,8 @@ public class Main {
 		
 		carrito.generarFactura();
 		
+		
+		System.out.println(p1.getPrecio());
 		
 		// ver el encapsulamiento xq nos dejaba acceder a los atributos desde cualquier clase.
 		

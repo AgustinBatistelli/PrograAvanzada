@@ -1,4 +1,4 @@
-package lab;
+package productos;
 
 //import java.util.*;
 
@@ -13,6 +13,10 @@ public class Producto {
 		
 	public double getPrecio(){
 		return precioFinal;
+	}
+
+	public String getNombreArticulo() {
+		return nombreArticulo;
 	}
 	
 }

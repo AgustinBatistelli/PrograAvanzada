@@ -1,4 +1,4 @@
-package lab;
+package productos;
 
 public class PackRegalo extends Pack {
 		
@@ -7,12 +7,12 @@ public class PackRegalo extends Pack {
 	}
 	
 	@Override
-	protected void agregarProducto(Producto prod) {	
+	public void agregarProducto(Producto prod) {	
 		this.listaProductos.add(prod);
 		this.precioFinal+= prod.precioFinal;
 	}
 	@Override
-	protected void agregarProducto(Producto prod, boolean esGratis) {
+	public void agregarProducto(Producto prod, boolean esGratis) {
 		
 		Producto agrego = new Producto(prod.precioFinal, prod.nombreArticulo);
 		if ( ! esGratis ) {
@@ -21,8 +21,7 @@ public class PackRegalo extends Pack {
 		
 		System.out.println("Hola soy gratis" + esGratis);
 		
-		
-		this.listaProductos.add(agrego );
+		this.listaProductos.add(agrego);
 		this.precioFinal+= agrego.precioFinal;
 	}
 	

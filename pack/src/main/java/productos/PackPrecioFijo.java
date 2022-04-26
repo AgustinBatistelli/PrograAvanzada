@@ -1,4 +1,4 @@
-package lab;
+package productos;
 
 public class PackPrecioFijo extends Pack {
 	
@@ -7,7 +7,7 @@ public class PackPrecioFijo extends Pack {
 	}
 	
 	@Override
-	protected void agregarProducto(Producto prod) {
+	public void agregarProducto(Producto prod) {
 		this.listaProductos.add(prod);
 	}
 }

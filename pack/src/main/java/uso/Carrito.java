@@ -1,8 +1,10 @@
-package lab;
+package uso;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
+import productos.Producto;
+
 
 public class Carrito {
 	private LinkedList<Producto> listaItems = new LinkedList<Producto>();
@@ -17,7 +19,7 @@ public class Carrito {
 	public double calcularTotal() {
 		double suma = 0;
 		for (int i = 0; i < listaItems.size(); i++) {
-			suma += listaItems.get(i).precioFinal;
+			suma += listaItems.get(i).getPrecio();
 		}
 
 		return suma;
@@ -37,9 +39,9 @@ public class Carrito {
 		System.out.println("**************************************************");
 		
 		for (int i = 0; i < listaItems.size(); i++) {
-			System.out.printf( "%-30.20s %19.2f \n",listaItems.get(i).nombreArticulo,listaItems.get(i).precioFinal);
+			System.out.printf( "%-30.20s %19.2f \n",listaItems.get(i).getNombreArticulo(),listaItems.get(i).getPrecio());
 		}
-		System.out.printf("%-44.20s %.2f", "Total",calcularTotal() );
+		System.out.printf("%-44.20s %.2f\n", "Total",calcularTotal() );
 	}
 
 }

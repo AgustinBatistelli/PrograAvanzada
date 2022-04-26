@@ -1,4 +1,4 @@
-package lab;
+package productos;
 
 public class PackDescuento extends Pack{
 	private double porcentajeDescuento;
@@ -9,7 +9,7 @@ public class PackDescuento extends Pack{
 	}
 	
 	@Override
-	protected void agregarProducto(Producto prod) {
+	public void agregarProducto(Producto prod) {
 		Producto agrego = new Producto(prod.precioFinal, prod.nombreArticulo);
 		agrego.precioFinal *= (100 - this.porcentajeDescuento)/100; //primero corrijo el precio.
 		this.listaProductos.add(agrego);
