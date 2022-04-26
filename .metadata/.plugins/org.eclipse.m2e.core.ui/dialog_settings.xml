@@ -61,9 +61,11 @@
 			<item value="taller"/>
 		</list>
 		<list key="name">
+			<item value="ponyExpressTaller"/>
 			<item value="ejercicioPack"/>
 		</list>
 		<list key="artifactId">
+			<item value="ponyExpressTaller"/>
 			<item value="ponyExpress"/>
 			<item value="ejercicios"/>
 			<item value="ejemploMaven"/>

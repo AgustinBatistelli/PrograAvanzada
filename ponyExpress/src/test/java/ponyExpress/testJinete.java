@@ -35,7 +35,17 @@ public class testJinete {
 		Assert.assertEquals(4, Jinete.jinetes(new int[] {6, 24, 6, 8, 28, 8, 23, 47, 17, 29, 37, 18, 40, 49}));
 	}
 	
+	@Test 
+	public void jinetes6() {
+		
+		Assert.assertEquals(2, Jinete.jinetes(new int[] {10,80,30}));
+	}
 	
+	@Test 
+	public void jinetes7() {
+		
+		Assert.assertEquals(3, Jinete.jinetes(new int[] {99, 10, 99}));
+	}
 	
 	
 
