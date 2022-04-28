@@ -1,5 +1,6 @@
 package armando.moviles;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Artesano {
@@ -16,14 +17,22 @@ public class Artesano {
 		
 		int sumaPesos = 0;
 		int cantPesosAUsar = 0;
+		List<Integer> nrosUsados = new ArrayList<Integer>();
 		
 		for(int i = 0; i < listaColgantes.size(); i++) {
 			
 			for(int j = i+1; j < listaColgantes.size(); j++) {
 				
 				if(listaColgantes.get(i).getPeso() == listaColgantes.get(j).getPeso()) {
-					sumaPesos += listaColgantes.get(i).getPeso() + listaColgantes.get(j).getPeso();
-					cantPesosAUsar++;
+					
+					int index = nrosUsados.indexOf(listaColgantes.get(i).getPeso());
+					
+					if(nrosUsados.isEmpty() || index == -1) {
+						sumaPesos += listaColgantes.get(i).getPeso() + listaColgantes.get(j).getPeso();
+						cantPesosAUsar++;
+						nrosUsados.add(listaColgantes.get(i).getPeso());
+					}
+					
 				}
 					
 				
