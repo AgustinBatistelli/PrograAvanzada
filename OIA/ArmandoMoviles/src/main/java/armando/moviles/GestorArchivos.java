@@ -15,11 +15,19 @@ public class GestorArchivos {
 		
 		int cantColgantes = Integer.valueOf(sc.nextLine().trim());
 		
+		if(cantColgantes < 0 || cantColgantes > 1000)
+			throw new Exception("Cantidad de colgantes invalidos");
+		
 		List<Colgante> listaColgantes = new ArrayList<Colgante>();
 		
 		for (int i = 0; i < cantColgantes; i++ ) {
 			
-			Colgante colgante = new Colgante(Integer.valueOf(sc.nextLine().trim()));
+			int peso = Integer.valueOf(sc.nextLine().trim());
+			
+			if(peso < 1 || peso > 100)
+				throw new Exception("peso invalido de colgante");
+			
+			Colgante colgante = new Colgante(peso);
 			
 			listaColgantes.add(colgante);
 			
