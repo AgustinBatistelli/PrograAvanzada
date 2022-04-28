@@ -1,7 +1,5 @@
 package mesadas_granito;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,20 +16,20 @@ public class NegocioVenta {
 		this.listaMesadas = listaMesadas;
 	}
 
-	public static void main(String[] args) {
+//	public static void main(String[] args) {
+//
+//		NegocioVenta negocioVenta = new NegocioVenta();
+//		try {
+//			negocioVenta = negocioVenta.leerArchivo("mesada.in");
+//			negocioVenta.resolver();
+//			negocioVenta.escribirArchivo("mesada.out");
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//
+//	}
 
-		NegocioVenta negocioVenta = new NegocioVenta();
-		try {
-			negocioVenta = negocioVenta.leerArchivo("mesada.in");
-			negocioVenta.resolver();
-			negocioVenta.escribirArchivo("mesada.out");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
-
-	private void resolver() {
+	public void resolver() {
 
 		int cantMesadasApilables = 0;
 		int cantMesadasApilablesMax = 0;
@@ -66,13 +64,11 @@ public class NegocioVenta {
 
 	}
 
-
-	private NegocioVenta leerArchivo(String path) throws FileNotFoundException {
-		return GestorArchivo.leerArchivo(path);
+	public String getResultado() {
+		return resultado;
 	}
 
-	private void escribirArchivo(String path) throws IOException {
-		GestorArchivo.escribirArchivo(path, this.resultado);
-	}
+
+
 
 }
