@@ -4,12 +4,21 @@ public class OIA {
 	
 	private NegocioVenta nv;
 
-	public static void main(String[] args) throws Exception{
+	public static void main(String[] args) throws Exception {
 
 		OIA ejercicio = new OIA();
-		ejercicio.leerArchivo("mesadas.in");
-		ejercicio.resolver();
-		ejercicio.escribirArchivo("mesadas.out");
+		
+		try {
+			
+			ejercicio.leerArchivo("mesadas.in");
+			ejercicio.resolver();
+			ejercicio.escribirArchivo("mesadas.out");
+			
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		
 	}
 	
 	private void resolver() {
