@@ -15,7 +15,6 @@
     <fullyQualifiedTypeName name="lab.PackDescuento"/>
     <fullyQualifiedTypeName name="lab.PackRegalo"/>
     <fullyQualifiedTypeName name="lab.Carrito"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="luchadoresJaponeses.GestionArchivo"/>
     <fullyQualifiedTypeName name="bombilla.Habitacion"/>
     <fullyQualifiedTypeName name="bombilla.Bombilla"/>
@@ -27,4 +26,12 @@
     <fullyQualifiedTypeName name="java.lang.AssertionError"/>
     <fullyQualifiedTypeName name="ponyExpress.Jinete"/>
     <fullyQualifiedTypeName name="org.junit.Assert"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
+    <fullyQualifiedTypeName name="productos.Producto"/>
+    <fullyQualifiedTypeName name="productos.Pack"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="mesada.Deposito"/>
+    <fullyQualifiedTypeName name="mesada.Mesada"/>
+    <fullyQualifiedTypeName name="mesada.GestionArchivo"/>
 </qualifiedTypeNameHistroy>

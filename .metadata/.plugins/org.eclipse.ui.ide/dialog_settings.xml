@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="NewWizardAction">
-		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.m2e.core.wizards.Maven2ProjectWizard"/>
+		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.jdt.ui.wizards.JavaProjectWizard"/>
 		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.ui.Basic"/>
+			<item value="org.eclipse.jdt.ui.java"/>
 			<item value="org.eclipse.m2e"/>
 		</list>
 	</section>
@@ -23,6 +25,12 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\marti\Documents\1erCuatri2022\PrograAvanzada\ejerciciosDeOtros\mesaditas"/>
+			<item value="C:\Users\marti\eclipse-workspace\MesadasGranito"/>
+			<item value="C:\Users\marti\Documents\1erCuatri2022\PrograAvanzada\ejerciciosDeOtros"/>
+			<item value="C:\Users\marti\Documents\1erCuatri2022\PrograAvanzada\ejerciciosDeOtros\src"/>
+			<item value="C:\Users\marti\Documents\1erCuatri2022\PrograAvanzada\Taller\tcp-road_fighter"/>
+			<item value="C:\Users\marti\Documents\1erCuatri2022\PrograAvanzada\Taller\tcp-road_fighter-main"/>
 			<item value="C:\Users\marti\eclipse-workspace\pack"/>
 			<item value="C:\Users\marti\eclipse-workspace\EjercicioPunto"/>
 			<item value="C:\Users\marti\Documents\1erCuatri2022\PrograAvanzada\Clase4y5\EntradaSalida"/>

@@ -1,7 +1,0 @@
-package main.java.medidas;
-
-public class UnidadDeMedida {
-	
-	private double unidad;
-	
-}
