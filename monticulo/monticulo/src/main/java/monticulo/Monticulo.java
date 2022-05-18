@@ -6,7 +6,7 @@ public class Monticulo {
 	private ArrayList<Integer> array = new ArrayList<Integer>();
 
 	public Monticulo() {
-		array.add(0);
+		array.add(0, null);
 	}
 
 	public void insertar(int elemento) {
@@ -15,8 +15,9 @@ public class Monticulo {
 
 		int indiceElemNuevo = array.size() - 1;
 		int indicePadre = indiceElemNuevo / 2;
-
-		while (array.get(indiceElemNuevo) < array.get(indicePadre) && indiceElemNuevo > 1) {
+		
+		
+		while (indiceElemNuevo > 1 && array.get(indiceElemNuevo) < array.get(indicePadre)) {
 			int aux = array.get(indiceElemNuevo);
 			array.set(indiceElemNuevo, array.get(indicePadre));
 			array.set(indicePadre, aux);
@@ -52,17 +53,17 @@ public class Monticulo {
 		int indiceHijoIzq;
 		while(indiceNuevaRaiz < tamArray && (indiceHijoIzq = indiceNuevaRaiz * 2) < tamArray) {
 			
-			int	valorHijoIzq = array.get(indiceHijoIzq);
+			Integer	valorHijoIzq = array.get(indiceHijoIzq);
 			
 			int indiceHijoDer = indiceNuevaRaiz * 2 + 1;
-			int valorHijoDer = indiceHijoDer < tamArray ? array.get(indiceHijoDer) : -1;
+			Integer valorHijoDer = indiceHijoDer < tamArray ? array.get(indiceHijoDer) : null;
 
 			///pregunto si la raiz es mayor a alguno de sus hijos, y en caso de que sea asi, los intercambio
-			if(valorNuevaRaiz >= valorHijoIzq || valorNuevaRaiz >= valorHijoDer) {
+			if(valorNuevaRaiz >= valorHijoIzq || (valorHijoDer != null && valorNuevaRaiz >= valorHijoDer)) {
 				
-				if(valorHijoIzq < valorHijoDer) {
+				if(valorHijoDer == null || valorHijoIzq < valorHijoDer) {
 					///intercambio la raiz con el hijo izq
-					int aux = valorNuevaRaiz;
+					Integer aux = valorNuevaRaiz;
 					array.set(indiceNuevaRaiz, array.get(indiceHijoIzq));
 					array.set(indiceHijoIzq, aux);
 
@@ -70,7 +71,7 @@ public class Monticulo {
 				}
 				else {
 					///intercambio la raiz con el hijo izq
-					int aux = valorNuevaRaiz;
+					Integer aux = valorNuevaRaiz;
 					array.set(indiceNuevaRaiz, array.get(indiceHijoDer));
 					array.set(indiceHijoDer, aux);
 
