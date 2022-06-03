@@ -8,3 +8,5 @@
 *.MF
 ejercicio00
 maven
+*.gitkeep
+lib
