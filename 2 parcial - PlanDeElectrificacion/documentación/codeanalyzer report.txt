@@ -1,0 +1,35 @@
+#######################################################################
+# Code Analyzer 0.7.0
+# Report for Code Set: New
+# Extension Set      : Java
+# Date               : Tue Nov 14 21:53:02 ART 2017
+# Displaying         : Files and Folders
+#######################################################################
+
+File Name                          Files    Lines    AVG Len  Code     Comments White SP Cd/Cm+WS Cd/Cm    Cd/WS    % Code   Cd/File  Cm/File  WS/File  
+--------------------------------   -------- -------- -------- -------- -------- -------- -------- -------- -------- -------- -------- -------- -------- 
+
+New
+--------------------------------          7      403       25      325        1       77     4,17   325,00     4,22     0,81       46        0       11
+
+C:\Users\laboratorios\Desktop\LópezEscobar\PlanDeElectrificacion
+--------------------------------          7      403       25      325        1       77     4,17   325,00     4,22     0,81       46        0       11
+
+C:\Users\laboratorios\Desktop\LópezEscobar\PlanDeElectrificacion\src
+--------------------------------          5      280       22      225        1       54     4,09   225,00     4,17     0,80       45        0       10
+
+C:\Users\laboratorios\Desktop\LópezEscobar\PlanDeElectrificacion\src\plan
+--------------------------------          5      280       22      225        1       54     4,09   225,00     4,17     0,80       45        0       10
+Arista.java                               1       28       12       21        0        7     3,00     0,00     3,00     0,75       21        0        7
+AristaPonderada.java                      1       20       13       14        0        6     2,33     0,00     2,33     0,70       14        0        6
+EjercicioOIA.java                         1       16       15       11        0        5     2,20     0,00     2,20     0,69       11        0        5
+Main.java                                 1       53       21       42        1       10     3,82    42,00     4,20     0,79       42        1       10
+PlanElectrico.java                        1      163       25      137        0       26     5,27     0,00     5,27     0,84      137        0       26
+
+C:\Users\laboratorios\Desktop\LópezEscobar\PlanDeElectrificacion\test
+--------------------------------          2      123       33      100        0       23     4,35     0,00     4,35     0,81       50        0       11
+
+C:\Users\laboratorios\Desktop\LópezEscobar\PlanDeElectrificacion\test\plan
+--------------------------------          2      123       33      100        0       23     4,35     0,00     4,35     0,81       50        0       11
+PlanTest.java                             1       65       36       53        0       12     4,42     0,00     4,42     0,82       53        0       12
+ProfeTest.java                            1       58       28       47        0       11     4,27     0,00     4,27     0,81       47        0       11

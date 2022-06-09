@@ -32,9 +32,11 @@ public class Servidor {
 			
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
 			LocalDateTime now = LocalDateTime.now();
+			
+			System.out.println(socket.getInetAddress().getHostName()); 
 
 			// El read también es bloqueante, como el accept
-			System.out.println(dtf.format(now) + "Cliente \"" 
+			System.out.println(dtf.format(now) + " Cliente \"" 
 			+ numeroCliente + "\" dice: \"" + entrada.readUTF() + "\"");
 
 			// Se cierran recursos

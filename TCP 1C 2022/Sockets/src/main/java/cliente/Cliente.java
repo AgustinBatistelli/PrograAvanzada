@@ -13,11 +13,14 @@ public class Cliente {
 	private boolean conectado = false;
 	
 	public static void main(String[] args) {
-		try {
-			new Cliente("localhost", 20000, "Sebastian");
-		} catch (IOException e) {
-			e.printStackTrace();
+		while(true) {
+			try {
+				new Cliente("localhost", 20000, "Sebastian");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
+		
 	}
 	
 	public Cliente(String ip, int puerto, String nombre) throws UnknownHostException, IOException {
@@ -33,21 +36,17 @@ public class Cliente {
 		Scanner scanner = new Scanner(System.in);
 		String mensajeConsola = scanner.nextLine();
 		if(mensajeConsola.equals("/salir"))
-			desconectar(scanner, entrada, salida);
+			desconectar(scanner, entrada, salida, socket);
 		else
 			salida.writeUTF(mensajeConsola);
-
+	}
+	
+	public boolean desconectar(Scanner scanner, DataInputStream entrada, DataOutputStream salida, 
+			Socket socket) throws IOException {
 		scanner.close();
 		entrada.close();
 		salida.close();
 		socket.close();
-	}
-	
-	public boolean desconectar(Scanner scanner, DataInputStream entrada, DataOutputStream salida) 
-			throws IOException {
-		scanner.close();
-		entrada.close();
-		salida.close();
 		this.conectado = false;
 		return this.conectado;
 	}

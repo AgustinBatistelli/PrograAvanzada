@@ -1,0 +1,36 @@
+DIJKSTRA:
+O(n^2) sin cola de prioridad
+O(alogn) con cola de prioridad
+
+PRIM:
+O(n^2) con matriz de adyacencia
+O(nlogn) con cola de prioridad
+O(n+alogn) con lista de aristas
+
+KRUSKAL:
+O(aloga) con lista de aristas
+
+FLOYD:
+O(n^3) con matriz de costos
+
+WARSHALL:
+O(n^3) con matriz booleana
+
+DFS: Búsqueda en profundidad:
+O(n+m) con pila
+O(n^2) cuando el grafo es muy conexo
+O(n) cuando el grafo es poco conexo
+
+BFS: Búsqueda en archura
+O(n+m) con cola
+O(n^2) cuando el grafo es muy conexo
+O(n) cuando el grafo es poco conexo
+
+COLOREO SECUENCIAL ALEATORIO O VORAZ:
+O(n^2)
+
+COLOREO WELSH POWELL:
+O(n^2)
+
+COLOREO MATULA-MARBLE-ISACCSON:
+O(n^2)
