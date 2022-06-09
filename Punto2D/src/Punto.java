@@ -16,12 +16,6 @@ public class Punto {
 		this(0, 0); //otra forma de hacerlo, invocando al constructor parametrizado pero en 0
 	}
 	
-	@Override
-	public int hashCode() {
-		return Objects.hash(x, y);
-	}
-	
-	
 	//equals tambien es una sobrecarga
 	public Punto suma(Punto puntoSuma) {
 		Punto puntoNuevo = new Punto(x + puntoSuma.x, y + puntoSuma.y);

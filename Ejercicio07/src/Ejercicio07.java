@@ -3,10 +3,14 @@ import java.util.Scanner;
 
 public class Ejercicio07 {	
 	public void crearArchivoRandoms() {
+		File f = null;
+		FileWriter fw = null;
+		BufferedWriter bw = null;
+		
 		try {
-			File f = new File("./archivos/archivoRandoms.txt");
-			FileWriter fw = new FileWriter(f);
-			BufferedWriter bw = new BufferedWriter(fw);
+			f = new File("./archivos/archivoRandoms.txt");
+			fw = new FileWriter(f);
+			bw = new BufferedWriter(fw);
 			
 			int cantNumeros = (int) Math.floor(10000 + Math.random() * 10000); 	
 			for (int i = 1; i < cantNumeros; i++) {
@@ -14,10 +18,18 @@ public class Ejercicio07 {
 				bw.write(numRandom + "\n");
 			}
 			
-			bw.close();
-			
 		} catch(Exception e) {
 			e.printStackTrace();
+		} 
+		finally {
+			try {
+				if(bw != null) {
+					bw.close();					
+				}
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	public void crearArchivoTabla() {

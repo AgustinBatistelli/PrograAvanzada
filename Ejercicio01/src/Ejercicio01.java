@@ -32,7 +32,8 @@ public class Ejercicio01 {
 		int[][] matrizEjemplo = {
 				{0,2,3},
 				{4,5,6},
-				{7,8,9}
+				{7,8,9},
+				{10,11,12}
 		};
 		
 		Ejercicio01 ejercicio = new Ejercicio01();

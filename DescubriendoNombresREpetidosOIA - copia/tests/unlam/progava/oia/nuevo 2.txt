@@ -1,7 +1,0 @@
-{
-  "nroPedido": "SR18961",
-  "cuentaCorrienteCliente": { 
-     "saldo": 164472.511,
-     "limiteCredito": 300000
-  }
-}
