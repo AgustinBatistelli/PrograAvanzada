@@ -1,1 +1,13 @@
 /.metadata/
+*/.classpath
+*/bin
+*/.settings
+*.project
+*.gitignore
+*.classpath
+.settings
+*.MF
+ejercicio00
+maven
+*.gitkeep
+lib
