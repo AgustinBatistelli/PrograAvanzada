@@ -2,6 +2,59 @@ package servidor;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+import conexion.Conexion;
+
+public class Servidor{
+
+    private int puerto;
+    
+    public Servidor(int puerto) {
+        this.puerto = puerto;
+    }
+
+    public void ingresoSalaDeChat() {
+        
+        Socket socketCliente;
+        
+        try {
+            
+            ServerSocket servidor = new ServerSocket(this.getPuerto());
+            System.out.println("Esperando peticiones en puerto: " + this.getPuerto());
+            
+            while(true) {
+                
+                socketCliente = servidor.accept();
+                DataInputStream entrada = new DataInputStream(socketCliente.getInputStream());
+                DataOutputStream salida = new DataOutputStream(socketCliente.getOutputStream());
+                
+                Conexion salaDeChat = new Conexion(socketCliente, entrada, salida);
+                salaDeChat.start();
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    
+    public int getPuerto() {
+        return puerto;
+    }
+
+    public static void main(String[] args) {
+        Servidor server = new Servidor(10000);
+        server.ingresoSalaDeChat();
+    }
+    
+    
+}
+
+
+/*
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -22,28 +75,33 @@ public class Servidor {
 		ServerSocket servidor = new ServerSocket(puerto);
 
 		System.out.println("Server inicializando...");
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
 
-		for (int numeroCliente = 1; numeroCliente <= 3; numeroCliente++) {
-			Socket socket = servidor.accept();
-
+		DataOutputStream salida = null;
+		DataInputStream entrada = null;
+//		Socket socket = null;
+		Socket socket = servidor.accept();
+		
+		while(true) {
 			// Flujos de información
-			DataOutputStream salida = new DataOutputStream(socket.getOutputStream());
-			DataInputStream entrada = new DataInputStream(socket.getInputStream());
+			salida = new DataOutputStream(socket.getOutputStream());
+			entrada = new DataInputStream(socket.getInputStream());
 			
-			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
 			LocalDateTime now = LocalDateTime.now();
-
+			
 			// El read también es bloqueante, como el accept
-			System.out.println(dtf.format(now) + "Cliente \"" 
-			+ numeroCliente + "\" dice: \"" + entrada.readUTF() + "\"");
-
-			// Se cierran recursos
-			entrada.close();
-			salida.close();
-			socket.close();
+			System.out.println(dtf.format(now) + " Cliente \"" 
+					 + "\" dice: \"" + entrada.readUTF() + "\"");
+			
 		}
+		
 
-		servidor.close();
+//		entrada.close();
+//		salida.close();
+//		socket.close();
+
+//		servidor.close();
 	}
 
 }
+*/

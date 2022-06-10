@@ -113,7 +113,7 @@ public class Frm1 extends javax.swing.JFrame implements Observer {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Frm2().setVisible(true);
+                new Frm1().setVisible(true);
             }
         });
     }
