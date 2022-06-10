@@ -15,7 +15,11 @@ public class MensajeAServidor implements Serializable {
         return nombreCliente;
     }
 
-    public String getMensaje() {
+    public void setMensaje(String mensaje) {
+		this.mensaje = mensaje;
+	}
+
+	public String getMensaje() {
         return mensaje;
     }
 }

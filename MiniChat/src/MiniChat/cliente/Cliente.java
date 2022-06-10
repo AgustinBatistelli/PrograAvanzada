@@ -2,17 +2,18 @@ package  MiniChat.cliente;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.Scanner;
 
-import graficos.VentanaChat;
 
-public class Cliente {
+public class Cliente implements Serializable, Observer {
 
     private int puerto;
     private String ip;
     private String nombreUser;
     
-    public Cliente(int puerto, String ip, String user) {
+    public Cliente(int puerto, String ip, String user) {  
         this.puerto = puerto;
         this.ip = ip;
         this.nombreUser = user;
@@ -28,8 +29,7 @@ public class Cliente {
     	String nombreCliente = scanner.nextLine();
     	
         Cliente cliente = new Cliente(10000, "127.0.0.2", nombreCliente);
-        VentanaChat.iniciarVentan(nombreCliente);
-        
+      
         
         Socket socketCliente = null;
         ObjectOutputStream salida = null;
@@ -41,7 +41,8 @@ public class Cliente {
             socketCliente = new Socket("127.0.0.1" , 10000);
               
             salida = new ObjectOutputStream(socketCliente.getOutputStream());
-            salida.writeObject(nombreCliente);
+
+    		salida.writeObject(cliente);
             
             leer = new InputStreamReader(System.in);
             ingresoTexto = new BufferedReader(leer);
@@ -68,4 +69,11 @@ public class Cliente {
     
         
     }
+
+	@Override
+	public void update(Observable o, Object arg) {
+		System.out.println((String) arg);		
+		
+	}
 }
+

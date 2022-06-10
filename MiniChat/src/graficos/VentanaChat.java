@@ -1,5 +1,7 @@
 package graficos;
 
+import java.util.Observable;
+
 public class VentanaChat extends javax.swing.JFrame {
     private javax.swing.JButton btnEnviar;
     private javax.swing.JScrollPane jScrollPane1;
@@ -88,4 +90,9 @@ public class VentanaChat extends javax.swing.JFrame {
 	            }
 	        });
 	    }
+	 
+   public void update(Object arg) {
+	        this.txtTexto.append((String) arg);
+	    }
 }
+
