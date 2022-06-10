@@ -4,32 +4,43 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.net.UnknownHostException;
+import java.util.Scanner;
 
-public class Cliente implements Runnable {
-    private int puerto;
-    private String mensaje;
+public class Cliente {
 
-    public Cliente(int puerto, String mensaje){
-        this.puerto = puerto;
-        this.mensaje = mensaje;
-    }
+    static Socket socket;
+    static DataInputStream inputStream;
+    static DataOutputStream outputStream;
 
-    @Override
-    public void run() {
-        final String HOST = "127.0.0.1"; // Este Host hace referencia a mi maquina
-        DataOutputStream out;
+    public Cliente(String ip, int puerto) throws UnknownHostException, IOException{
+        socket = new Socket(ip, puerto);
 
-        try{
-            Socket socket = new Socket(HOST, puerto); // Esto puede tirar excepcion si no esta el Server levantado
-            out = new DataOutputStream(socket.getOutputStream());
+        //inputStream = new DataInputStream(socket.getInputStream());
+        outputStream = new DataOutputStream(socket.getOutputStream());
 
-            out.writeUTF(mensaje);
-            System.out.println(mensaje);
+        Scanner scanner = new Scanner(System.in);
+        String mensajeConsola = scanner.nextLine();
 
-            socket.close();
-        }catch(IOException e){
-            e.printStackTrace();
+
+        while(!mensajeConsola.equals("/salir")){
+             outputStream.writeUTF(mensajeConsola);
+             mensajeConsola = scanner.nextLine();
         }
 
+        scanner.close();
+        outputStream.writeUTF("El cliente abandono el chat");
+        outputStream.close();
+        socket.close();
+        System.out.println("Me adios!");
+
+    }
+
+    public static void main(String[] args) {
+        try {
+            new Cliente("localhost", 20000);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
