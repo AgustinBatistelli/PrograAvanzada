@@ -2,6 +2,7 @@ package cliente;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -27,34 +28,50 @@ public class Cliente {
         return ip;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         
-//        Cliente c1 = new Cliente(10000, "127.0.0.1", "Lucas");
-//        Cliente c2 = new Cliente(10000, "127.0.0.1", "Lukitas");
-//        Cliente c3 = new Cliente(10000, "127.0.0.1", "NeoLukitas");
-//        ArrayList<Cliente> clientes = new ArrayList<Cliente>();
-//        
-//        clientes.add(c1);
-//        clientes.add(c2);
-//        clientes.add(c3);
+    	Scanner scanner = new Scanner(System.in);
+    	
+    	System.out.println("Ingrese su nombre");
+    	String nombreCliente = scanner.nextLine();
+    	
+        Cliente cliente = new Cliente(10000, "127.0.0.2", nombreCliente);
+        
         
         Socket socketCliente = null;
-        Scanner teclado = null;
+        DataOutputStream salida = null;
+        InputStreamReader leer = null;
+        BufferedReader ingresoTexto = null;
         
         try {
-            socketCliente = new Socket("127.0.0.1",10000);
-            DataOutputStream salida = new DataOutputStream(socketCliente.getOutputStream());
-                    
-            InputStreamReader leer = new InputStreamReader(System.in);
-            BufferedReader ingresoTexto = new BufferedReader(leer);
-            System.out.print("Escriba el texto: ");
-            String texto = ingresoTexto.readLine();
+            socketCliente = new Socket("127.0.0.1" , 10000);
+            salida = new DataOutputStream(socketCliente.getOutputStream());
+            leer = new InputStreamReader(System.in);
+            ingresoTexto = new BufferedReader(leer);
+
             
-            salida.writeUTF(texto);
+            System.out.print("Escriba el texto: ");
+            
+
+            String mensajeConsola = ingresoTexto.readLine();
+
+            while(!mensajeConsola.equals("/salir")){
+            	salida.writeUTF(mensajeConsola);
+                mensajeConsola = ingresoTexto.readLine();
+            }
+            salida.writeUTF("/salir " + "user:" + nombreCliente);
+            
             
         } catch(Exception e) {
             e.printStackTrace();
         }
+        
+    	scanner.close();
+        socketCliente.close();    
+        leer.close();
+        salida.close();
+        ingresoTexto.close();
+    
         
     }
 }

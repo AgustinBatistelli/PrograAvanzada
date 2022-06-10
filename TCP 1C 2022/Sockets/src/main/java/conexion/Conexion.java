@@ -21,15 +21,18 @@ public class Conexion extends Thread{
     public void run() {
         
         System.out.println("Se ha conectado un nuevo cliente");
+        String mensaje = null;
         
-        while(true) {
-        	try {
-        		String mensaje = entrada.readUTF();
-        		System.out.println(mensaje);
-        	} catch(Exception e) {
-        		e.printStackTrace();
-        	}
-        }
+    	try {
+    		do {
+    			mensaje = entrada.readUTF();
+				System.out.println(mensaje); 
+    		}while(!mensaje.contains("/salir"));
+    		
+    	} catch(Exception e) {
+    		e.printStackTrace();
+    	}
+
         
     }
     
