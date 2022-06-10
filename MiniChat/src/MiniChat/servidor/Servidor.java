@@ -1,35 +1,52 @@
 package MiniChat.servidor;
 
-import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Servidor {
-    private ServerSocket server;
-    private Socket socket;
-    private DataInputStream inputStream;
-    private DataOutputStream outputStream;
+import  MiniChat.conexion.Conexion;
 
-    public Servidor(int puerto) throws IOException{
-        server = new ServerSocket(puerto);
-        String messageIn = "";
-        socket = server.accept();
+public class Servidor{
 
-        inputStream = new DataInputStream(socket.getInputStream());
-        while(true){
-              messageIn = inputStream.readUTF();
-              System.out.println("Mensaje: " + messageIn);
-        }
+    private int puerto;
+    
+    public Servidor(int puerto) {
+        this.puerto = puerto;
     }
 
-
-    public static void main(String[] args) {
+    public void ingresoSalaDeChat() {
+        
+        Socket socketCliente;
+        
         try {
-            new Servidor(20000);
-        } catch (IOException e) {
+            
+            ServerSocket servidor = new ServerSocket(this.getPuerto());
+            System.out.println("Esperando peticiones en puerto: " + this.getPuerto());
+            
+            while(true) {              
+                socketCliente = servidor.accept();
+                ObjectInputStream entrada = new ObjectInputStream(socketCliente.getInputStream());
+                DataOutputStream salida = new DataOutputStream(socketCliente.getOutputStream());
+                
+                Conexion salaDeChat = new Conexion(socketCliente, entrada, salida);
+                salaDeChat.start();
+            }
+        } catch(Exception e) {
             e.printStackTrace();
         }
     }
+
+    
+    public int getPuerto() {
+        return puerto;
+    }
+
+    public static void main(String[] args) {
+        Servidor server = new Servidor(10000);
+        server.ingresoSalaDeChat();
+    }
+    
+    
 }
+

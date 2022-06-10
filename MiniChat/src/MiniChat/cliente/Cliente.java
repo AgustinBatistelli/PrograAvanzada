@@ -1,46 +1,71 @@
-package MiniChat.cliente;
+package  MiniChat.cliente;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.Socket;
-import java.net.UnknownHostException;
 import java.util.Scanner;
+
+import graficos.VentanaChat;
 
 public class Cliente {
 
-    static Socket socket;
-    static DataInputStream inputStream;
-    static DataOutputStream outputStream;
-
-    public Cliente(String ip, int puerto) throws UnknownHostException, IOException{
-        socket = new Socket(ip, puerto);
-
-        //inputStream = new DataInputStream(socket.getInputStream());
-        outputStream = new DataOutputStream(socket.getOutputStream());
-
-        Scanner scanner = new Scanner(System.in);
-        String mensajeConsola = scanner.nextLine();
-
-
-        while(!mensajeConsola.equals("/salir")){
-             outputStream.writeUTF(mensajeConsola);
-             mensajeConsola = scanner.nextLine();
-        }
-
-        scanner.close();
-        outputStream.writeUTF("El cliente abandono el chat");
-        outputStream.close();
-        socket.close();
-        System.out.println("Me adios!");
-
+    private int puerto;
+    private String ip;
+    private String nombreUser;
+    
+    public Cliente(int puerto, String ip, String user) {
+        this.puerto = puerto;
+        this.ip = ip;
+        this.nombreUser = user;
     }
 
-    public static void main(String[] args) {
+    public String getNombreUser() {
+        return nombreUser;
+    }
+
+    public static void main(String[] args) throws IOException {
+    	Scanner scanner = new Scanner(System.in);
+    	System.out.println("Ingrese su nombre");
+    	String nombreCliente = scanner.nextLine();
+    	
+        Cliente cliente = new Cliente(10000, "127.0.0.2", nombreCliente);
+        VentanaChat.iniciarVentan(nombreCliente);
+        
+        
+        Socket socketCliente = null;
+        ObjectOutputStream salida = null;
+        DataOutputStream salidaTxt = null;
+        InputStreamReader leer = null;
+        BufferedReader ingresoTexto = null;
+        
         try {
-            new Cliente("localhost", 20000);
-        } catch (IOException e) {
+            socketCliente = new Socket("127.0.0.1" , 10000);
+              
+            salida = new ObjectOutputStream(socketCliente.getOutputStream());
+            salida.writeObject(nombreCliente);
+            
+            leer = new InputStreamReader(System.in);
+            ingresoTexto = new BufferedReader(leer);
+            
+            System.out.print("Escriba el texto: ");
+            String mensajeConsola = ingresoTexto.readLine();
+
+            while(!mensajeConsola.equals("/salir")){
+                MensajeAServidor mensaje = new MensajeAServidor(cliente.getNombreUser(), mensajeConsola);
+            	salida.writeObject(mensaje);
+                System.out.print("Escriba el texto: ");
+                mensajeConsola = ingresoTexto.readLine();
+            }            
+            
+        } catch(Exception e) {
             e.printStackTrace();
         }
+        
+    	scanner.close();
+        socketCliente.close();    
+        leer.close();
+        salida.close();
+        ingresoTexto.close();
+    
+        
     }
 }
