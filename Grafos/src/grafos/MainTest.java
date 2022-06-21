@@ -12,7 +12,7 @@ public class MainTest {
 		grafoMatriz.setArista(2, 0, 15);
 		grafoMatriz.setArista(2, 4, 11);
 		grafoMatriz.setArista(3, 4, 1);
-//		grafoMatriz.setArista(4, 0, 3);
+		grafoMatriz.setArista(4, 0, 3);
 
 		//Grafo disjunto ...
 //		grafoMatriz.setArista(0, 1, 10);

@@ -59,43 +59,38 @@ public class GrafoMatrizNoDirigido extends GrafoMatrizAdyacencia {
 		boolean[] visitados = new boolean[matriz.length]; // array de vertices visitados
 		double[] distancias = new double[matriz.length];
 		int[] desdeQueNodoVoy = new int[matriz.length];
-
+		double pesoTotal = 0;
+		
 		Arrays.fill(visitados, false); // setteo visitados en false al inicio.
-		Arrays.fill(desdeQueNodoVoy, 0); // setteo desdeoQueNodoVoy en 0; primer elemento desde el que voy a intentar
-											// ir..
+		Arrays.fill(desdeQueNodoVoy, 0); // setteo desdeoQueNodoVoy en 0; primer elemento desde el que voy a intentar ir..
 		Arrays.fill(distancias, VALOR_INFINITO); // setteo todo en valor inf..
 
 		visitados[0] = true; // seteo en true el primer valor xq ya lo estoy usando..
 		int i = 0;
-//		double valorMenorDistancia;// = VALOR_INFINITO;
 		int cantidadAristas = 0;
 
 		while (cantidadAristas < matriz.length - 1) {
 
-//			double min = VALOR_INFINITO;
-			for (int j = 1; j < distancias.length; j++) {
+			for (int j = 0; j < distancias.length; j++) {
 
 				if (distancias[j] > matriz[i][j]) {
 					distancias[j] = matriz[i][j];
 					desdeQueNodoVoy[j] = i; // actualizo el valor del nodo desde el que voy..
 					// actualizo el valor del minimo..
-//					if (min > matriz[i][j]) {
-//						min = matriz[i][j];
-//						indiceMenorDistancia = j;
-//					}
 				}
 			}
 
 			// Este indice va a indicar ahora, cual es el nodo que tengo que ver el valor de
 			// sus aristas..
 			
-			double valorMenorDistancia = distancias[0];
-			for(int k = 1; k < distancias.length; k++) {
+			double valorMenorDistancia = VALOR_INFINITO;
+			for(int k = 0; k < distancias.length; k++) {
 				// busco el valor minimo ..
-				if( distancias[k] < valorMenorDistancia && !visitados[k] )
+				if( distancias[k] < valorMenorDistancia && !visitados[k] ) {
+					valorMenorDistancia = distancias[k];  
 					i = k;
+				}
 			}
-			
 			visitados[i] = true;
 			cantidadAristas++;
 		}
@@ -110,11 +105,14 @@ public class GrafoMatrizNoDirigido extends GrafoMatrizAdyacencia {
 			// mostrando por pantalla..
 			x = j;
 			y = desdeQueNodoVoy[j];
-			if( matriz[x][y] != VALOR_INFINITO)
+			if( matriz[x][y] != VALOR_INFINITO) {
 			System.out.println(x + " - " + y + " :  " + matriz[x][y]);
-
+			pesoTotal += matriz[x][y]; 
+			}
 		}
-
+		
+		System.out.println("Peso total: " + pesoTotal);
+		
 	}
 
 	public void Kruskal() {
