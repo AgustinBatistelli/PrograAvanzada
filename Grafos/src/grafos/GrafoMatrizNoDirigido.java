@@ -55,14 +55,15 @@ public class GrafoMatrizNoDirigido extends GrafoMatrizAdyacencia {
 		System.out.println("Peso total: " + pesoTotal);
 	}
 
-	public void primProfe() { //osea va por ahi la cosa..
+	public void primMIO() { // osea va por ahi la cosa..
 		boolean[] visitados = new boolean[matriz.length]; // array de vertices visitados
 		double[] distancias = new double[matriz.length];
 		int[] desdeQueNodoVoy = new int[matriz.length];
 		double pesoTotal = 0;
-		
+
 		Arrays.fill(visitados, false); // setteo visitados en false al inicio.
-		Arrays.fill(desdeQueNodoVoy, 0); // setteo desdeoQueNodoVoy en 0; primer elemento desde el que voy a intentar ir..
+		Arrays.fill(desdeQueNodoVoy, 0); // setteo desdeoQueNodoVoy en 0; primer elemento desde el que voy a intentar
+											// ir..
 		Arrays.fill(distancias, VALOR_INFINITO); // setteo todo en valor inf..
 
 		visitados[0] = true; // seteo en true el primer valor xq ya lo estoy usando..
@@ -82,12 +83,12 @@ public class GrafoMatrizNoDirigido extends GrafoMatrizAdyacencia {
 
 			// Este indice va a indicar ahora, cual es el nodo que tengo que ver el valor de
 			// sus aristas..
-			
+
 			double valorMenorDistancia = VALOR_INFINITO;
-			for(int k = 0; k < distancias.length; k++) {
+			for (int k = 0; k < distancias.length; k++) {
 				// busco el valor minimo ..
-				if( distancias[k] < valorMenorDistancia && !visitados[k] ) {
-					valorMenorDistancia = distancias[k];  
+				if (distancias[k] < valorMenorDistancia && !visitados[k]) {
+					valorMenorDistancia = distancias[k];
 					i = k;
 				}
 			}
@@ -99,20 +100,37 @@ public class GrafoMatrizNoDirigido extends GrafoMatrizAdyacencia {
 		int x = 0; // row number
 		int y = 0; // col number
 
-		for (int j = 0; j < desdeQueNodoVoy.length; j++) {
+		// recorro y voy buscando el minimo, a su vez con otro ciclo externo voy a ir
+		// disminuyendo la cnatidad de iteraciones que todavia me faltan..
 
-			// busco en el vector desdeQueNodoVoy el menor y el indice de ese valor voy
-			// mostrando por pantalla..
+		double minimo = matriz[0][desdeQueNodoVoy[0]];
+		int indiceNodoYaContemplado = 0;
+
+		while (cantidadAristas > 0) {
+			for (int j = 1; j < desdeQueNodoVoy.length; j++) {
+				x = j;
+				y = desdeQueNodoVoy[j];
+				if (matriz[x][y] < minimo && visitados[x]) {
+					minimo = matriz[x][y];
+					indiceNodoYaContemplado = x;
+				}
+			}
+			// en x voy a tener el indice del nodo que ya visite..
+			visitados[indiceNodoYaContemplado] = false; // lo marco como ya visitado.
+			cantidadAristas--;
+		}
+
+		for (int j = 0; j < desdeQueNodoVoy.length; j++) {
 			x = j;
 			y = desdeQueNodoVoy[j];
-			if( matriz[x][y] != VALOR_INFINITO) {
-			System.out.println(x + " - " + y + " :  " + matriz[x][y]);
-			pesoTotal += matriz[x][y]; 
+			if (visitados[j] == true) {
+				System.out.println(x + " - " + y + " :  " + matriz[x][y]);
+				pesoTotal += matriz[x][y];
 			}
 		}
-		
+
 		System.out.println("Peso total: " + pesoTotal);
-		
+
 	}
 
 	public void Kruskal() {
