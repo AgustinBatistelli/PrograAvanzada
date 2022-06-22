@@ -21,14 +21,14 @@ public class MainTest {
 		grafoMatriz.setArista(3, 4, 1);
 		grafoMatriz.setArista(4, 0, 3);
 		
-		ArrayList<Arista> solucionKruskal= grafoMatriz.kruskal();
-		
-		double costo = 0;
-		for(Arista arista: solucionKruskal) {
-			costo += arista.getPeso();
-		}
-		System.out.println("El costo total es: " + costo);
-		
+//		ArrayList<Arista> solucionKruskal= grafoMatriz.kruskal();
+//		
+//		double costo = 0;
+//		for(Arista arista: solucionKruskal) {
+//			costo += arista.getPeso();
+//		}
+//		System.out.println("El costo total es: " + costo);
+//		
 //		grafoMatriz.mostrarMatriz();
 //		grafoMatriz.mostrarGrafoBFS(3);
 //		grafoMatriz.mostrarGrafoDFS(3);
@@ -100,6 +100,20 @@ public class MainTest {
 		grafoKruskal.setArista(5, 4, 6);
 		
 //		grafoKruskal.kruskal();
+		
+		
+		
+		GrafoMatrizAdyacencia grafoFloyd = new GrafoMatrizAdyacencia(4);
+		
+		grafoFloyd.setArista(0, 1, 2);
+		grafoFloyd.setArista(0, 2, 5);
+		grafoFloyd.setArista(0, 3, 9);
+		grafoFloyd.setArista(1, 3, 4);
+		grafoFloyd.setArista(2, 0, 5);
+		grafoFloyd.setArista(2, 1, 1);
+		grafoFloyd.setArista(3, 2, 5);
+		
+		grafoFloyd.floyd();
 		
 	}
 }

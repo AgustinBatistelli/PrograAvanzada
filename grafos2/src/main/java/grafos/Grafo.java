@@ -15,6 +15,7 @@ public abstract class Grafo {
 	
 	public abstract HashSet<Integer> getNodos();
 	
+	
 	public void dijkstra(int nodoOrigen) {
 		int cantNodos = getCantNodos();
 		HashSet<Integer> V_S = new HashSet<Integer>(cantNodos);

@@ -51,6 +51,37 @@ public class GrafoMatrizAdyacencia extends Grafo {
 		return find( x, padre ) == find( y, padre );
 	}
 	
+	public void floyd() {
+		int cantNodos = getCantNodos();
+		double [][] matrizResultado = new double[cantNodos][cantNodos];
+		
+		for(int i = 0; i < cantNodos; i++) {
+			for(int j = 0; j < cantNodos; j++) {
+				matrizResultado[i][j] = matriz[i][j];
+			}
+		}
+		
+		for(int i = 0; i < cantNodos; i++) {
+			for(int j = 0; j < cantNodos; j++) {
+				for(int k = 0; k < cantNodos; k++) {
+					if(j != i && k != i && j != k)
+						matrizResultado[j][k] = minimo(matrizResultado[j][k], matrizResultado[j][i] + matrizResultado[i][k]);
+				}
+			}
+		}
+		
+		for(int i = 0; i < cantNodos; i++) {
+			for(int j = 0; j < cantNodos; j++) {
+				System.out.format("%4d ",(int)matrizResultado[i][j]);
+			}
+			System.out.println("");
+		}
+	}
+	
+	private double minimo(double a, double b) {
+		return a < b ? a : b;
+	}
+	
 	public ArrayList<Arista> kruskal() {
 		int cantNodosGrafo = getCantNodos();
 		int padre[] = new int[ cantNodosGrafo ];
