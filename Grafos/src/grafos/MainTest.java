@@ -57,6 +57,19 @@ public class MainTest {
 		
 		grafoFloyd.floyd();
 		
+		System.out.println();
+		
+		GrafoMatrizAdyacencia grafoWarshall = new GrafoMatrizAdyacencia(4);
+		
+		grafoWarshall.setArista(0, 1, 2);
+		grafoWarshall.setArista(0, 2, 5);
+		grafoWarshall.setArista(0, 3, 9);
+		grafoWarshall.setArista(1, 3, 4);
+		grafoWarshall.setArista(2, 0, 5);
+		grafoWarshall.setArista(2, 1, 1);
+		grafoWarshall.setArista(3, 2, 5);
+		
+		grafoWarshall.warshall();
 		
 		
 //		GrafoMatrizNoDirigido grafo3 = new GrafoMatrizNoDirigido(6);

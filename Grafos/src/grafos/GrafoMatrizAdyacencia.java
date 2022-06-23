@@ -177,7 +177,41 @@ public class GrafoMatrizAdyacencia extends Grafo {
 	private double min(double val1, double val2) {
 		return val1 < val2 ? val1 : val2;
 	}
+	
+	public void warshall() {
 
+		int cantNodos = getCantNodos();
+		Boolean[][] matrizResultado = new Boolean[cantNodos][cantNodos];
+
+		// cargo la matriz con la informacion del grafo.
+		
+		for (int i = 0; i < cantNodos; i++) {
+			for (int j = 0; j < cantNodos; j++) {
+				matrizResultado[i][j] = matriz[i][j] < VALOR_INFINITO ? true : false; // si tengo un valor menor a inf true..
+			}
+		}
+		// obtengo el menor valor entre cada arista..
+		for (int i = 0; i < cantNodos; i++) {
+			for (int j = 0; j < cantNodos; j++) {
+				for (int k = 0; k < cantNodos; k++) {
+					if (i != j && i != k && j != k) {
+						
+						matrizResultado[i][j] = (matrizResultado[i][j]) || (matrizResultado[i][k] && matrizResultado[k][j]) ? true : false;
+					}
+				}
+			}
+		}
+		// muestro la matriz resultado..
+		
+		for (int i = 0; i < cantNodos; i++) {
+			for (int j = 0; j < cantNodos; j++) {
+				System.out.printf("%4d",  matrizResultado[i][j]? 1:0);
+			}
+			System.out.println("");
+		}
+		
+
+	}	
 	
 
 }
