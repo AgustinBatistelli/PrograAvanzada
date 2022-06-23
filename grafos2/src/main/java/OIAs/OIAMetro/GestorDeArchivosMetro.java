@@ -1,10 +1,10 @@
-package OIAMetro;
+package OIAs.OIAMetro;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class GestorDeArchivos {
+public class GestorDeArchivosMetro {
 	public static Ciudad cargarCiudad(String inputPath) {
 		Ciudad ciudad = null;
 		File f = null;

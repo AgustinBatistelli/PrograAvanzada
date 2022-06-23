@@ -25,7 +25,7 @@ public class GrafoMatrizAdyacencia extends Grafo {
 	    private int origen;     //Vértice origen
 	    private int destino;    //Vértice destino
 	    private double peso;       //Peso entre el vértice origen y destino
-	    Arista(int origen, int destino, double peso){
+	    public Arista(int origen, int destino, double peso){
 	    	this.origen = origen;
 	    	this.destino = destino;
 	    	this.peso = peso;
@@ -60,7 +60,7 @@ public class GrafoMatrizAdyacencia extends Grafo {
 		return find( x, padre ) == find( y, padre );
 	}
 	
-	public void floyd() {
+	public double[][] floyd() {
 		int cantNodos = getCantNodos();
 		double [][] matrizResultado = new double[cantNodos][cantNodos];
 		
@@ -79,12 +79,14 @@ public class GrafoMatrizAdyacencia extends Grafo {
 			}
 		}
 		
-		for(int i = 0; i < cantNodos; i++) {
-			for(int j = 0; j < cantNodos; j++) {
-				System.out.format("%4d ",(int)matrizResultado[i][j]);
-			}
-			System.out.println("");
-		}
+//		for(int i = 0; i < cantNodos; i++) {
+//			for(int j = 0; j < cantNodos; j++) {
+//				System.out.format("%4d ",(int)matrizResultado[i][j]);
+//			}
+//			System.out.println("");
+//		}
+		
+		return matrizResultado;
 	}
 	
 	private double minimo(double a, double b) {

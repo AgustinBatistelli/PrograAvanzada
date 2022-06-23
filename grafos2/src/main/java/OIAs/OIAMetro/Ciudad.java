@@ -1,4 +1,4 @@
-package OIAMetro;
+package OIAs.OIAMetro;
 
 import java.util.ArrayList;
 
@@ -41,7 +41,7 @@ public class Ciudad {
 	
 	public static void main(String[] args) {
 		String pathInput = "./grafoOIAMetro.txt";
-		Ciudad ciudad = GestorDeArchivos.cargarCiudad(pathInput);
+		Ciudad ciudad = GestorDeArchivosMetro.cargarCiudad(pathInput);
 		
 		int cantMinPuentes = ciudad.cantidadMinimaTuneles();
 		System.out.println("La cantidad minima de puentes es: " + cantMinPuentes);
