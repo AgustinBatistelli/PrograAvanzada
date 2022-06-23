@@ -1,0 +1,13 @@
+5 2 6
+alpha
+beta
+gamma
+delta
+epsilon
+3 5
+alpha beta 3
+beta gamma 1
+beta delta 2
+gamma delta 3
+delta epsilon 1
+alpha epsilon 6
