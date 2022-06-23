@@ -1,6 +1,8 @@
 package grafos;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class GrafoMatrizNoDirigido extends GrafoMatrizAdyacencia {
 
@@ -105,7 +107,8 @@ public class GrafoMatrizNoDirigido extends GrafoMatrizAdyacencia {
 
 		double minimo = matriz[0][desdeQueNodoVoy[0]];
 		int indiceNodoYaContemplado = 0;
-
+// en vez de buscar los menores, busco el mayor, lo cancelo y muestro el resto... O(1) mejor que O(n^2)
+		
 		while (cantidadAristas > 0) {
 			for (int j = 1; j < desdeQueNodoVoy.length; j++) {
 				x = j;
@@ -133,8 +136,84 @@ public class GrafoMatrizNoDirigido extends GrafoMatrizAdyacencia {
 
 	}
 
-	public void Kruskal() {
+	static class Arista implements Comparable<Arista>{
+	    private int origen;     //Vértice origen
+	    private int destino;    //Vértice destino
+	    private double peso;       //Peso entre el vértice origen y destino
+	    Arista(int origen, int destino, double peso){
+	    	this.origen = origen;
+	    	this.destino = destino;
+	    	this.peso = peso;
+		}
 
+		public int getDestino() {
+			return destino;
+		}
+		public int getOrigen() {
+			return origen;
+		}
+		
+		public double getPeso() {
+			return peso;
+		}
+		public int compareTo(Arista o) {
+			return (int) (this.peso - o.peso);
+		}
+	};
+	
+	static int find( int x, int padre[]){
+	    return ( x == padre[ x ] ) ? x : ( padre[ x ] = find( padre[ x ], padre ) );
+	}
+
+	//Método para unir 2 componentes conexas
+	static void union( int x , int y , int padre[]){
+	    padre[ find( x, padre ) ] = find( y, padre );
+	}
+
+	//Método que me determina si 2 vértices estan o no en la misma componente conexa
+	static boolean sameComponent( int x , int y , int padre[]){
+		return find( x, padre ) == find( y, padre );
+	}
+	
+	public ArrayList<Arista> kruskal() {
+		int cantNodosGrafo = getCantNodos();
+		int padre[] = new int[ cantNodosGrafo ];
+		ArrayList<Arista> solucion = new ArrayList<Arista>(cantNodosGrafo);
+		ArrayList<Arista> aristas = new ArrayList<Arista>(cantNodosGrafo);
+		
+		
+		for(int i = 0; i < cantNodosGrafo; i++) {
+			padre[i] = i;
+		}
+		
+		for(int i = 0; i < cantNodosGrafo; i++) {
+			for(int j = 0; j < cantNodosGrafo; j++) {
+				aristas.add(new Arista(i, j, matriz[i][j]));
+			}
+		}
+		Collections.sort(aristas);
+		
+		for( int i = 0 ; i < aristas.size() ; ++i ){     //Recorremos las aristas ya ordenadas por peso
+	        int origen = aristas.get(i).getOrigen();    //Vértice origen de la arista actual
+	        int destino = aristas.get(i).getDestino();  //Vértice destino de la arista actual
+	        double peso = aristas.get(i).getPeso();        //Peso de la arista actual
+
+	        //Verificamos si estan o no en la misma componente conexa
+	        if( !sameComponent( origen , destino , padre) ){  //Evito ciclos
+	        	union( origen , destino, padre );  //Union de ambas componentes en una sola
+	        	solucion.add(new Arista(origen, destino, peso));
+	        }
+	    }
+		
+		for(Arista arista: solucion) {
+			System.out.println(arista.getDestino() + 1 + "-" +  (arista.getOrigen() + 1) + ": " +  arista.getPeso());
+		}
+		
+//		System.out.println("El costo total es: " + costoTotal);
+		
+		
+		return solucion;
+		
 	}
 
 }

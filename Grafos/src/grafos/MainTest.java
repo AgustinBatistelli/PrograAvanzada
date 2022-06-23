@@ -5,43 +5,45 @@ import gestorArchivos.GestorDeArchivos;
 public class MainTest {
 	public static void main(String[] args) {
 		
-		GrafoMatrizNoDirigido grafoMatriz = new GrafoMatrizNoDirigido(5);
-		grafoMatriz.setArista(0, 1, 10);
-		grafoMatriz.setArista(0, 3, 5);
-		grafoMatriz.setArista(1, 2, 12);
-		grafoMatriz.setArista(2, 0, 15);
-		grafoMatriz.setArista(2, 4, 11);
-		grafoMatriz.setArista(3, 4, 1);
-		grafoMatriz.setArista(4, 0, 3);
-
+//		GrafoMatrizNoDirigido grafoMatriz = new GrafoMatrizNoDirigido(5);
+//		grafoMatriz.setArista(0, 1, 10);
+//		grafoMatriz.setArista(0, 3, 5);
+//		grafoMatriz.setArista(1, 2, 12);
+//		grafoMatriz.setArista(2, 0, 15);
+//		grafoMatriz.setArista(2, 4, 11);
+//		grafoMatriz.setArista(3, 4, 1);
+//		grafoMatriz.setArista(4, 0, 3);
+//		grafoMatriz.setArista(0, 4, 1);
+//
 		//Grafo disjunto ...
 //		grafoMatriz.setArista(0, 1, 10);
 //		grafoMatriz.setArista(0, 3, 5);
 //		grafoMatriz.setArista(1, 2, 12);
 //		grafoMatriz.setArista(2, 0, 15);
 //		grafoMatriz.setArista(3, 4, 100);
-		
-		grafoMatriz.mostrarMatriz();
+//		
+//		grafoMatriz.mostrarMatriz();
 //		grafoMatriz.mostrarGrafoBFS(3);
 //		grafoMatriz.mostrarGrafoDFS(3);
-		
-		grafoMatriz.Prim();
-		System.out.println();
-		grafoMatriz.primProfe();
+//		
+//		grafoMatriz.Prim();
+//		System.out.println();
+//		grafoMatriz.primMIO();
 		
 		
 		
 		
 //		GrafoMatrizNoDirigido grafo2 = new GrafoMatrizNoDirigido(4);
-//		
-//		grafo2.setArista(0, 1, 7);
-//		grafo2.setArista(0, 2, 3);
-//		grafo2.setArista(1, 3, 2);
-//		grafo2.setArista(2, 1, 2);
-//		grafo2.setArista(2, 3, 8);
-//		
-//		grafo2.mostrarMatriz();
-//		grafo2.dijkstra(0);
+		GrafoMatrizAdyacencia grafo2 = new GrafoMatrizAdyacencia(4);
+		
+		grafo2.setArista(0, 1, 7);
+		grafo2.setArista(0, 2, 3);
+		grafo2.setArista(1, 3, 2);
+		grafo2.setArista(2, 1, 2);
+		grafo2.setArista(2, 3, 8);
+		
+		grafo2.mostrarMatriz();
+		grafo2.dijkstra(0);
 		
 		
 //		GrafoMatrizNoDirigido grafo3 = new GrafoMatrizNoDirigido(6);
