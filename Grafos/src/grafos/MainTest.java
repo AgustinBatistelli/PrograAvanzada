@@ -34,16 +34,29 @@ public class MainTest {
 		
 		
 //		GrafoMatrizNoDirigido grafo2 = new GrafoMatrizNoDirigido(4);
-		GrafoMatrizAdyacencia grafo2 = new GrafoMatrizAdyacencia(4);
+//		GrafoMatrizAdyacencia grafo2 = new GrafoMatrizAdyacencia(4);
+//		
+//		grafo2.setArista(0, 1, 7);
+//		grafo2.setArista(0, 2, 3);
+//		grafo2.setArista(1, 3, 2);
+//		grafo2.setArista(2, 1, 2);
+//		grafo2.setArista(2, 3, 8);
+//		
+//		grafo2.mostrarMatriz();
+//		grafo2.dijkstra(0);
 		
-		grafo2.setArista(0, 1, 7);
-		grafo2.setArista(0, 2, 3);
-		grafo2.setArista(1, 3, 2);
-		grafo2.setArista(2, 1, 2);
-		grafo2.setArista(2, 3, 8);
+		GrafoMatrizAdyacencia grafoFloyd = new GrafoMatrizAdyacencia(4);
 		
-		grafo2.mostrarMatriz();
-		grafo2.dijkstra(0);
+		grafoFloyd.setArista(0, 1, 2);
+		grafoFloyd.setArista(0, 2, 5);
+		grafoFloyd.setArista(0, 3, 9);
+		grafoFloyd.setArista(1, 3, 4);
+		grafoFloyd.setArista(2, 0, 5);
+		grafoFloyd.setArista(2, 1, 1);
+		grafoFloyd.setArista(3, 2, 5);
+		
+		grafoFloyd.floyd();
+		
 		
 		
 //		GrafoMatrizNoDirigido grafo3 = new GrafoMatrizNoDirigido(6);

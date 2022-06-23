@@ -138,5 +138,46 @@ public class GrafoMatrizAdyacencia extends Grafo {
 		// falta chequear si tengo elementos disjuntos, osea si tengo 2 grafos separados
 		// o mas..
 	}
+	
+	public void floyd() {
+
+		int cantNodos = getCantNodos();
+		double[][] matrizResultado = new double[cantNodos][cantNodos];
+
+		// cargo la matriz con la informacion del grafo.
+		
+		for (int i = 0; i < cantNodos; i++) {
+			for (int j = 0; j < cantNodos; j++) {
+				matrizResultado[i][j] = matriz[i][j];
+			}
+		}
+		// obtengo el menor valor entre cada arista..
+		for (int i = 0; i < cantNodos; i++) {
+			for (int j = 0; j < cantNodos; j++) {
+				for (int k = 0; k < cantNodos; k++) {
+					if (i != j && i != k && j != k) {
+						matrizResultado[i][j] = min(matrizResultado[i][j],
+								matrizResultado[i][k] + matrizResultado[k][j]);
+					}
+				}
+			}
+		}
+		// muestro la matriz resultado..
+		
+		for (int i = 0; i < cantNodos; i++) {
+			for (int j = 0; j < cantNodos; j++) {
+				System.out.printf("%4d", (int) matrizResultado[i][j]);
+			}
+			System.out.println("");
+		}
+		
+
+	}
+
+	private double min(double val1, double val2) {
+		return val1 < val2 ? val1 : val2;
+	}
+
+	
 
 }
