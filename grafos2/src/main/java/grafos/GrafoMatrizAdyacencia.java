@@ -12,7 +12,16 @@ public class GrafoMatrizAdyacencia extends Grafo {
 	
 	protected double[][] matriz;
 	
-	static class Arista implements Comparable<Arista>{
+	public GrafoMatrizAdyacencia(int cantNodos) {
+		matriz = new double[cantNodos][cantNodos];
+		for(int i = 0; i < matriz.length; i++) {
+			for(int j = 0; j < matriz.length; j++) {
+				matriz[i][j] = VALOR_INFINITO;
+			}
+		}
+	}
+	
+	public static class Arista implements Comparable<Arista>{
 	    private int origen;     //Vértice origen
 	    private int destino;    //Vértice destino
 	    private double peso;       //Peso entre el vértice origen y destino
@@ -123,14 +132,7 @@ public class GrafoMatrizAdyacencia extends Grafo {
 		
 	}
 	
-	public GrafoMatrizAdyacencia(int cantNodos) {
-		matriz = new double[cantNodos][cantNodos];
-		for(int i = 0; i < matriz.length; i++) {
-			for(int j = 0; j < matriz.length; j++) {
-				matriz[i][j] = VALOR_INFINITO;
-			}
-		}
-	}
+	
 	
 	public void setArista(int nodoOrigen, int nodoDestino, double valor) {
 		matriz[nodoOrigen][nodoDestino] = valor;
