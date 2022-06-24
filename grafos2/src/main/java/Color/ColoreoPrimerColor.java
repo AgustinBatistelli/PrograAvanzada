@@ -25,11 +25,15 @@ public class ColoreoPrimerColor {
 					if(!nodosAdyacentes.contains(j) && arrayColores[j] == 0) { //si no es adyacente y no fue coloreado, lo voy a colorear
 						arrayColores[j] = cantColores;
 						nodosSinColorear.remove(j);
+						if(j != nodoActual) {
+							nodosAdyacentes.addAll(grafo.getNodosAdyacentes(j));
+						}
 					}
 				}
 			}
 			i++;
 		}
+	
 		
 		coloreo.setColoreo(arrayColores, cantColores);		
 		return coloreo;

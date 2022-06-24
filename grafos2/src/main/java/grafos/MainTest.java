@@ -45,75 +45,110 @@ public class MainTest {
 //		grafo2.dijkstra(0);
 		
 		
-//		GrafoMatrizNoDirigido grafo3 = new GrafoMatrizNoDirigido(6);
-//		GrafoMatrizAdyacencia grafo3 = GestorArchivosGrafos.cargarGrafo("grafoTest.txt");
-//		
+		int tam = 500;
+		GrafoMatrizNoDirigido grafo3 = new GrafoMatrizNoDirigido(tam);
+		
+		for(int i = 0; i < tam; i++) {
+			for(int j = 0 ; j < tam; j++) {
+				if(i != j) {
+					grafo3.setArista(i, j, 1);					
+				}
+			}
+		}
+		
+		
 //		grafo3.mostrarMatriz();
-//		
+		
+		//grafo martin
 //		grafo3.setArista(0, 3, 1);
 //		grafo3.setArista(0, 5, 1);
 //		grafo3.setArista(1, 3, 1);
 //		grafo3.setArista(1, 4, 1);
 //		grafo3.setArista(2, 3, 1);
 //		grafo3.setArista(2, 5, 1);
-//		grafo3.setArista(3, 0, 1);
-//		grafo3.setArista(3, 1, 1);
-//		grafo3.setArista(3, 2, 1);
-//		grafo3.setArista(4, 1, 1);
-//		grafo3.setArista(4, 3, 1);
-//		grafo3.setArista(5, 0, 1);
-//		grafo3.setArista(5, 2, 1);
+//		grafo3.setArista(0, 3, 1);
+//		grafo3.setArista(3, 4, 1);
+
+//		grafo totalmanteConexo
+//		grafo3.setArista(0, 1, 1);
+//		grafo3.setArista(0, 2, 1);
+//		grafo3.setArista(0, 3, 1);
+//		grafo3.setArista(0, 4, 1);
+//		grafo3.setArista(0, 5, 1);
+//		grafo3.setArista(1, 2, 1);
+//		grafo3.setArista(1, 3, 1);
+//		grafo3.setArista(1, 4, 1);
+//		grafo3.setArista(1, 5, 1);
+//		grafo3.setArista(2, 3, 1);
+//		grafo3.setArista(2, 4, 1);
+//		grafo3.setArista(2, 5, 1);
+//		grafo3.setArista(3, 4, 1);
+//		grafo3.setArista(3, 5, 1);
+//		grafo3.setArista(4, 5, 1);
+		
+		
 //	
 //
-//		Orden orden = new OrdenAleatorio().generarOrden(grafo3);
-//		Coloreo coloreoMinimo = new ColoreoPrimerColor().colorear(grafo3, orden);
-//		
-//		for(int i = 0; i < 10000; i++) {
-//			Orden ordenNuevo = new OrdenAleatorio().generarOrden(grafo3);
-//			Coloreo coloreoNuevo = new ColoreoPrimerColor().colorear(grafo3, ordenNuevo);
-//			if(coloreoNuevo.getCantColores() < coloreoMinimo.getCantColores()) {
-//				coloreoMinimo = coloreoNuevo;
-//			}
-//		}
-//		coloreoMinimo.imprimirColores();
-//		
-		GrafoMatrizNoDirigido grafoKruskal = new GrafoMatrizNoDirigido(6);
-		grafoKruskal.setArista(0, 1, 6);
-		grafoKruskal.setArista(0, 2, 1);
-		grafoKruskal.setArista(0, 3, 5);
-		grafoKruskal.setArista(1, 0, 6);
-		grafoKruskal.setArista(1, 2, 5);
-		grafoKruskal.setArista(1, 4, 3);
-		grafoKruskal.setArista(2, 0, 1);
-		grafoKruskal.setArista(2, 1, 5);
-		grafoKruskal.setArista(2, 3, 5);
-		grafoKruskal.setArista(2, 4, 8);
-		grafoKruskal.setArista(2, 5, 4);
-		grafoKruskal.setArista(3, 0, 5);
-		grafoKruskal.setArista(3, 2, 5);
-		grafoKruskal.setArista(3, 5, 2);
-		grafoKruskal.setArista(4, 1, 3);
-		grafoKruskal.setArista(4, 2, 8);
-		grafoKruskal.setArista(4, 5, 6);
-		grafoKruskal.setArista(5, 2, 4);
-		grafoKruskal.setArista(5, 3, 2);
-		grafoKruskal.setArista(5, 4, 6);
 		
+		
+//		GrafoMatrizAdyacencia grafo3 = GestorArchivosGrafos.cargarGrafo("grafoTest.txt");
+		Orden orden = new OrdenAleatorio().generarOrden(grafo3);
+		Coloreo coloreoMinimo = new ColoreoPrimerColor().colorear(grafo3, orden);
+		
+//		grafo3.mostrarMatriz();
+		
+//		System.out.println("orden: ");
+//		for(int k = 0; k < grafo3.getCantNodos(); k++) {
+//			System.out.println(orden.getOrden()[k]);
+//		}
+//		
+		
+		for(int i = 0; i < 10000; i++) {
+			orden = new OrdenAleatorio().generarOrden(grafo3);
+			Coloreo coloreoNuevo = new ColoreoPrimerColor().colorear(grafo3, orden);
+			if(coloreoNuevo.getCantColores() < coloreoMinimo.getCantColores()) {
+				coloreoMinimo = coloreoNuevo;
+			}
+		}
+		coloreoMinimo.imprimirColores();
+		
+//		GrafoMatrizNoDirigido grafoKruskal = new GrafoMatrizNoDirigido(6);
+//		grafoKruskal.setArista(0, 1, 6);
+//		grafoKruskal.setArista(0, 2, 1);
+//		grafoKruskal.setArista(0, 3, 5);
+//		grafoKruskal.setArista(1, 0, 6);
+//		grafoKruskal.setArista(1, 2, 5);
+//		grafoKruskal.setArista(1, 4, 3);
+//		grafoKruskal.setArista(2, 0, 1);
+//		grafoKruskal.setArista(2, 1, 5);
+//		grafoKruskal.setArista(2, 3, 5);
+//		grafoKruskal.setArista(2, 4, 8);
+//		grafoKruskal.setArista(2, 5, 4);
+//		grafoKruskal.setArista(3, 0, 5);
+//		grafoKruskal.setArista(3, 2, 5);
+//		grafoKruskal.setArista(3, 5, 2);
+//		grafoKruskal.setArista(4, 1, 3);
+//		grafoKruskal.setArista(4, 2, 8);
+//		grafoKruskal.setArista(4, 5, 6);
+//		grafoKruskal.setArista(5, 2, 4);
+//		grafoKruskal.setArista(5, 3, 2);
+//		grafoKruskal.setArista(5, 4, 6);
+//		
 //		grafoKruskal.kruskal();
 		
 		
-		
-		GrafoMatrizAdyacencia grafoFloyd = new GrafoMatrizAdyacencia(4);
-		
-		grafoFloyd.setArista(0, 1, 2);
-		grafoFloyd.setArista(0, 2, 5);
-		grafoFloyd.setArista(0, 3, 9);
-		grafoFloyd.setArista(1, 3, 4);
-		grafoFloyd.setArista(2, 0, 5);
-		grafoFloyd.setArista(2, 1, 1);
-		grafoFloyd.setArista(3, 2, 5);
-		
-		grafoFloyd.floyd();
+//		
+//		GrafoMatrizAdyacencia grafoFloyd = new GrafoMatrizAdyacencia(4);
+//		
+//		grafoFloyd.setArista(0, 1, 2);
+//		grafoFloyd.setArista(0, 2, 5);
+//		grafoFloyd.setArista(0, 3, 9);
+//		grafoFloyd.setArista(1, 3, 4);
+//		grafoFloyd.setArista(2, 0, 5);
+//		grafoFloyd.setArista(2, 1, 1);
+//		grafoFloyd.setArista(3, 2, 5);
+//		
+//		grafoFloyd.floyd();
 		
 	}
 }

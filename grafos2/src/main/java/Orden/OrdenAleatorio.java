@@ -12,7 +12,7 @@ public class OrdenAleatorio implements MetodoOrdenamiento {
 			orden.getOrden()[i] = i;
 		}
 		
-		for(int i = 0; i < grafo.getCantNodos() * 10; i++) {
+		for(int i = 0; i < grafo.getCantNodos() * 3; i++) {
 			int indiceRandom1 = (int) Math.floor(Math.random() * grafo.getCantNodos());
 			int indiceRandom2 = (int) Math.floor(Math.random() * grafo.getCantNodos());
 			
